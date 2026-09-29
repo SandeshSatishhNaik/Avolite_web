@@ -1,6 +1,6 @@
 # Iron Dome of India
 
-A static, single-page explainer on India's multi-layered air and missile defence shield, **Mission Sudarshan Chakra**, built with plain HTML, CSS and JavaScript.
+A single-page explainer on India's multi-layered air and missile defence shield, **Mission Sudarshan Chakra**, built with React and Vite.
 
 ## What's inside
 
@@ -13,20 +13,31 @@ A static, single-page explainer on India's multi-layered air and missile defence
 
 ## Run it
 
-There's no build step and no dependencies. You can either:
+You need Node.js 20.19+ or 22.12+.
 
-- open `index.html` in a browser, or
-- serve the folder, e.g. `python3 -m http.server 8000`, then visit http://localhost:8000.
+```bash
+npm install
+npm run dev       # dev server at http://localhost:5173
+npm run build     # production build in dist/
+npm run preview   # serve the built dist/ locally
+```
 
-It also works as-is on GitHub Pages (Settings → Pages → deploy from branch, root folder).
+The build uses relative asset paths, so you can host `dist/` from any sub-path (for example, GitHub Pages).
 
 ## Structure
 
 ```
-index.html        page markup
-css/style.css     styles (dark theme, responsive)
-js/main.js        nav, layer explorer, systems filter, simulator
-assets/favicon.svg
+index.html                 Vite entry
+public/favicon.svg
+src/
+  main.jsx                 React root
+  App.jsx                  page layout
+  index.css                styles (dark theme, responsive)
+  data.js                  layers, systems, timeline and comparison content
+  hooks/useInView.js       scroll-in-view + reduced-motion helpers
+  sim/engine.js            framework-free canvas simulator engine
+  components/              Header, Hero, Overview, Layers, Systems,
+                           Simulator, Timeline, Compare, Footer, ...
 ```
 
 ## Disclaimer

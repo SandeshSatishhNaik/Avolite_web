@@ -728,15 +728,15 @@ tbody th { width: 20%; color: var(--muted); font-weight: 500; }
 .to-top:hover { border-color: var(--accent); }
 
 /* ---------- Reveal on scroll ---------- */
-.js .reveal {
+.reveal {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity .6s ease, transform .6s ease;
 }
-.js .reveal.visible { opacity: 1; transform: none; }
+.reveal.visible { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .js .reveal { opacity: 1; transform: none; }
+  .reveal { opacity: 1; transform: none; }
 }
