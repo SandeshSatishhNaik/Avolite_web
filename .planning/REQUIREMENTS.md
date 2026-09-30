@@ -9,9 +9,9 @@ Sources: `.planning/PROJECT.md`, `.planning/research/` (FEATURES, DESIGN, ARCHIT
 
 ### Foundation (FND)
 
-- [ ] **FND-01**: Site builds as a static Astro 7 project with TypeScript and plain CSS custom properties, and `npm run build` produces `dist/` ready for Cloudflare Pages (`.node-version` = 24)
-- [ ] **FND-02**: Design tokens (colors, type scale, spacing, radii, motion durations/easings) from DESIGN.md live in one tokens file and every component uses them
-- [ ] **FND-03**: Fonts (Archivo, IBM Plex Sans, IBM Plex Mono) are self-hosted through the Astro Fonts API with metric-matched fallbacks, within 130 KB
+- [x] **FND-01**: Site builds as a static Astro 7 project with TypeScript and plain CSS custom properties, and `npm run build` produces `dist/` ready for Cloudflare Pages (`.node-version` = 24)
+- [x] **FND-02**: Design tokens (colors, type scale, spacing, radii, motion durations/easings) from DESIGN.md live in one tokens file and every component uses them
+- [x] **FND-03**: Fonts (Archivo, IBM Plex Sans, IBM Plex Mono) are self-hosted through the Astro Fonts API with metric-matched fallbacks, within 130 KB
 - [ ] **FND-04**: The page renders every section in its final, complete state with JavaScript disabled
 - [ ] **FND-05**: The supplied logo is cleaned (white background path removed, `viewBox` added) and rendered through one Logo component with a reversed variant legible on the dark background
 
@@ -166,9 +166,9 @@ Deferred. Tracked but not in the current roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FND-01 | Phase 1 | Pending |
-| FND-02 | Phase 1 | Pending |
-| FND-03 | Phase 1 | Pending |
+| FND-01 | Phase 1 | Complete |
+| FND-02 | Phase 1 | Complete |
+| FND-03 | Phase 1 | Complete |
 | FND-04 | Phase 3 | Pending |
 | FND-05 | Phase 1 | Pending |
 | DATA-01 | Phase 2 | Pending |

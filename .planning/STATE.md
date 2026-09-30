@@ -4,13 +4,13 @@ milestone: v1.0
 milestone_name: milestone
 status: executing
 stopped_at: "Roadmap created; next is /gsd:plan-phase 1"
-last_updated: "2026-09-30T17:06:51.540Z"
-last_activity: 2026-09-30 -- Phase 1 execution started
+last_updated: "2026-09-30T17:14:33.924Z"
+last_activity: 2026-09-30
 progress:
   total_phases: 6
   completed_phases: 0
   total_plans: 3
-  completed_plans: 0
+  completed_plans: 1
   percent: 0
 ---
 
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-09-30)
 ## Current Position
 
 Phase: 1 (shell-and-stack) — EXECUTING
-Plan: 1 of 3
-Status: Executing Phase 1
-Last activity: 2026-09-30 -- Phase 1 execution started
+Plan: 2 of 3
+Status: Ready to execute
+Last activity: 2026-09-30
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [███░░░░░░░] 33%
 
 ## Performance Metrics
 
@@ -51,6 +51,8 @@ Progress: [░░░░░░░░░░] 0%
 - Last 5 plans: -
 - Trend: -
 
+| Phase 1 P01 | 12min | 3 tasks | 21 files |
+
 ## Accumulated Context
 
 ### Decisions
@@ -61,6 +63,8 @@ Recent decisions affecting current work:
 - Roadmap: 6 breadth-first phases; Phase 3 (all sections static) is the ship point; motion is the first cut
 - Roadmap: GSAP is optional, added only after the static site is done
 - Roadmap: deploy (QA-06) only when the user asks
+- [Phase 1]: P01: astro pinned exactly 7.3.5, typescript ^6.0.3 (TS 7 outside @astrojs/check peer range)
+- [Phase 1]: P01: no @types/node; playwright.config.ts declares process locally (no unaudited packages)
 
 ### Pending Todos
 
@@ -83,6 +87,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-09-30
+Last session: 2026-09-30T17:14:25.442Z
 Stopped at: Roadmap created; next is /gsd:plan-phase 1
 Resume file: None
