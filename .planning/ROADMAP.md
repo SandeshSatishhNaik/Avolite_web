@@ -45,7 +45,9 @@ Breadth-first build of a static, honesty-first single-page site for AVOLITE (SIH
   3. A preview page shows all six status tags, each distinguishable by glyph and border without color, plus the legend
   4. A preview page shows a metric readout (ILLUSTRATIVE variant hatched, no count-up), a MATLAB figure on a light plate with caption/status/source, a fixed-ratio placeholder naming its pending asset, and a result table that becomes cards under 768 px with a "View as table" disclosure
   5. Raster images are served as AVIF/WebP with explicit width and height
-**Plans**: TBD
+**Plans**: 2 plans
+- [ ] 02-01-PLAN.md — Pinned CSV ingest, results.json, data.ts zod honesty rules and derived values, requireTagged, dist wording lint wired into astro build, node fixture tests (wave 1)
+- [ ] 02-02-PLAN.md — StatusTag/legend/SectionHeader/Metric/Figure/Placeholder/ResultTable/TableDisclosure, PNG intake as AVIF/WebP, unlinked noindex /preview/, dist and Playwright/axe tests (wave 2, runs after 01; same working tree)
 **UI hint**: yes
 
 ### Phase 3: All sections, static (ship point)
@@ -105,7 +107,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6. Phase 3 is the
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Shell and stack | 3/3 | Complete    | 2026-09-30 |
-| 2. Data and honesty system | 0/TBD | Not started | - |
+| 2. Data and honesty system | 0/2 | Planned | - |
 | 3. All sections, static (ship point) | 0/TBD | Not started | - |
 | 4. Interactives and motion | 0/TBD | Not started | - |
 | 5. Asset swap-in | 0/TBD | Not started | - |
