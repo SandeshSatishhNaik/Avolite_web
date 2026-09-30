@@ -29,7 +29,10 @@ Breadth-first build of a static, honesty-first single-page site for AVOLITE (SIH
   3. On a phone-width screen, visitor opens a mobile menu listing all 8 sections with subtitles, focus stays inside it, and it closes with Escape
   4. Keyboard user's first Tab reveals a skip link that moves focus to main content
   5. Text renders in self-hosted Archivo / IBM Plex with no visible font swap shift, and all colors, spacing and type come from one tokens file
-**Plans**: TBD
+**Plans**: 3 plans
+- [ ] 01-01-PLAN.md — Astro 7 scaffold, tokens, self-hosted fonts, Base layout, SECTIONS[], Logo contract stub, test infrastructure (wave 1)
+- [ ] 01-02-PLAN.md — Logo cleanup script, generated JSON, sprite, Logo component, favicon (wave 2)
+- [ ] 01-03-PLAN.md — 8 anchored sections, sticky header with scroll-spy, dialog mobile menu, skip link, Playwright and axe specs (wave 3, runs after 02; same working tree)
 **UI hint**: yes
 
 ### Phase 2: Data and honesty system

@@ -88,6 +88,11 @@ A judge who scrolls the page once understands the problem, sees the real MATLAB 
 | Imagery: SVG/code for data and diagrams, AI scenes for mood | User chose "mix" | — Pending |
 | Team = Team Avoflare | User said same as AVOFLARE | — Pending |
 | Deploy to Cloudflare Pages at the end | User instruction | — Pending |
+| Section ids `problem, how, built, new, demo, security, roadmap, why` | Stable anchors for later phases; user approved defaults 2026-09-30 | — Pending |
+| Header logo = mark + wordmark side by side; full lockup in footer | Lockup unreadable at header height | — Pending |
+| Archivo glyph-subset to Basic Latin (fonts ≈109 KB) | Stay under 130 KB budget | — Pending |
+| Numbers-only nav labels at 1024–1279 px | Fallback if labelled links wrap | — Pending |
+| Mobile menu = native `<dialog>` + Invoker Commands | Focus containment, Esc, works without JS in current browsers | — Pending |
 
 ## Evolution
 

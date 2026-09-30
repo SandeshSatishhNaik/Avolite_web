@@ -455,17 +455,22 @@ Astro preset on Pages: build command `npm run build`, output `dist`; `CF_PAGES_U
 | A7 | Menu behavior identical in Firefox and WebKit | Pattern 3 | Only Chromium tested; Phase 6 covers it |
 | A8 | Hero `<h1>` stub text "AVOLITE" acceptable until Phase 3 | Code Examples | None; replaced in Phase 3 |
 
-## Open Questions
+## Open Questions (RESOLVED)
+
+All three resolved by user-approved defaults on 2026-09-30 (see PROJECT.md Key Decisions).
 
 1. **Section ids and subtitles: confirm with user?**
+   - RESOLVED: drafts accepted; ids `problem, how, built, new, demo, security, roadmap, why` in one `SECTIONS[]` constant.
    - Known: REQUIREMENTS names the 8 sections; DESIGN gives only the 02 subtitle.
    - Unclear: final wording.
    - Recommendation: ship the drafts in Pattern 2; they live in one array and are cheap to change. Ids are the only thing that is costly to change later.
 2. **Logo in the header: mark + wordmark horizontal arrangement**
+   - RESOLVED: mark + wordmark side by side in the header; full lockup in the footer (Phase 3).
    - Known: lockup is illegible at header height; the horizontal arrangement is a re-composition of the supplied art (no redrawing).
    - Unclear: whether the team accepts re-arranging the lockup.
    - Recommendation: use it; footer (Phase 3) shows the real lockup at >= 64 px. An original vector from the team would improve edge quality (auto-trace roughness is visible only when zoomed).
 3. **Archivo `display` strategy** (see Pitfall 2): decide after a throttled layout-shift measurement; default `swap` with preload is acceptable for Phase 1.
+   - RESOLVED: keep `swap` with preloads; switch Archivo to `optional` only if the layout-shift test fails.
 
 ## Environment Availability
 
