@@ -4,9 +4,14 @@ import { defineConfig, fontProviders } from 'astro/config';
 // Without this subset the file is ~90 KB and total fonts are ~140 KB (> 130 KB budget).
 const DISPLAY_GLYPHS = [...' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz·—–’“”°±×'];
 
+// `||` (not `??`) so an empty SITE_URL falls through to the next source.
+const PLACEHOLDER_SITE = 'https://avolite.example';
+const site = process.env.SITE_URL || process.env.CF_PAGES_URL || PLACEHOLDER_SITE;
+if (site === PLACEHOLDER_SITE) console.warn('[astro.config] SITE_URL not set: canonical uses the placeholder ' + PLACEHOLDER_SITE);
+
 export default defineConfig({
   output: 'static',
-  site: process.env.SITE_URL ?? process.env.CF_PAGES_URL ?? 'https://avolite.example',
+  site,
   fonts: [
     {
       provider: fontProviders.google(),
