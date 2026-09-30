@@ -19,7 +19,7 @@ test('astro pinned exactly, typescript ^6', () => {
 test('package.json type, engines, scripts', () => {
   const p = pkg();
   assert.equal(p.type, 'module');
-  assert.equal(p.engines.node, '>=22.12.0');
+  assert.equal(p.engines.node, '>=22.18.0');
   for (const s of ['dev', 'build', 'preview', 'check', 'test', 'test:e2e']) {
     assert.ok(p.scripts[s], `missing script ${s}`);
   }
