@@ -486,7 +486,9 @@ Skip `CFAR_Visualization/*_145537.png` and `*_145619.png`: two timestamped runs 
 | A3 | Status definitions wording | Pattern 5 | Copy tweak only; the team may reword |
 | A4 | `--plate: #FFFFFF` matches the MATLAB export background | Pattern 6 | Visible seam if exports are off-white (they look pure white) |
 
-## Open Questions (all RESOLVED with defaults so planning can proceed)
+## Open Questions (RESOLVED)
+
+All resolved with defaults so planning can proceed (user asleep; defaults logged for review).
 
 1. **Preview page: dev-only or built? (RESOLVED)** Default: build `src/pages/preview.astro` → `/preview/`. It is unlinked and carries `<meta name="robots" content="noindex">` (add a `noindex?: boolean` prop to `Base.astro`), plus a `public/_headers` block `/preview/*` with `X-Robots-Tag: noindex`. Why not `_preview.astro`: underscore pages are excluded from routing entirely, even in dev, and Playwright e2e runs against `build && preview`, so the page must exist in `dist/`. It contains only real, tagged data plus the one ILLUSTRATIVE example, so it passes the lint and is harmless if found. Phase 6 may delete it.
 2. **TODO/TBD/lorem "outside marked placeholders". (RESOLVED)** Default: ban them **everywhere** in HTML text. Placeholder copy uses "pending from the team", so no exemption parser is needed. This is stricter than the requirement, and it still satisfies it.
