@@ -1,4 +1,6 @@
 import { defineConfig, fontProviders } from 'astro/config';
+import { existsSync, readdirSync, readFileSync, rmSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { verifyRaw } from './scripts/ingest.mjs';
 import { lintOutput } from './scripts/honesty.mjs';
 
@@ -22,9 +24,24 @@ const honesty = {
       await import('./src/lib/data.ts');
     },
     // DATA-07 / DATA-02: banned wording and untagged <data> numbers in the built HTML.
-    'astro:build:done': ({ dir }) => lintOutput(dir),
+    'astro:build:done': ({ dir }) => {
+      lintOutput(dir);
+      pruneUnusedPng(fileURLToPath(dir));
+    },
   },
 };
+
+// IMG-03: Astro deletes a PNG original only after optimising it. figures.ts registers every MATLAB export,
+// so originals that no page renders would stay in dist/_astro. Drop those that no built file references.
+function pruneUnusedPng(distDir) {
+  const assets = distDir + '_astro/';
+  if (!existsSync(assets)) return;
+  const refs = readdirSync(distDir, { recursive: true })
+    .filter((f) => /\.(html|css|js)$/.test(String(f)))
+    .map((f) => readFileSync(distDir + f, 'utf8'))
+    .join('\n');
+  for (const f of readdirSync(assets)) if (f.endsWith('.png') && !refs.includes(f)) rmSync(assets + f);
+}
 
 export default defineConfig({
   output: 'static',

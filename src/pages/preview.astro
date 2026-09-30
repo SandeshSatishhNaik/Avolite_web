@@ -4,6 +4,10 @@ import SectionHeader from '../components/ui/SectionHeader.astro';
 import StatusTag from '../components/ui/StatusTag.astro';
 import StatusLegend from '../components/ui/StatusLegend.astro';
 import Placeholder from '../components/ui/Placeholder.astro';
+import Metric from '../components/ui/Metric.astro';
+import Figure from '../components/ui/Figure.astro';
+import ResultTable from '../components/ui/ResultTable.astro';
+import { metric, illustrative } from '../lib/data.ts';
 import { SECTIONS } from '../lib/site.ts';
 import { STATUS_IDS } from '../lib/status.ts';
 
@@ -38,6 +42,26 @@ const first = SECTIONS[0];
         <Placeholder asset="Range-Doppler plot" status="PLANNED" ratio="2.23/1" />
       </div>
     </section>
+
+    <section aria-labelledby="pv-metrics-h">
+      <h2 id="pv-metrics-h">Metrics</h2>
+      <div class="grid">
+        <Metric tagged={metric('cfar-a', 'maxAbsRangeError')} />
+        <Metric tagged={metric('cfar-a', 'maxAbsVelocityError')} />
+        <Metric tagged={metric('cfar-a', 'detected')} />
+        <Metric tagged={illustrative('env-noise-floor-example')} />
+      </div>
+    </section>
+
+    <section aria-labelledby="pv-figure-h">
+      <h2 id="pv-figure-h">Figure</h2>
+      <Figure id="errors" table="cfar-a" />
+    </section>
+
+    <section id="result-table" aria-labelledby="pv-table-h">
+      <h2 id="pv-table-h">Result table</h2>
+      <ResultTable datasetId="cfar-a" />
+    </section>
   </div>
 </Base>
 
@@ -56,6 +80,11 @@ const first = SECTIONS[0];
     display: flex;
     flex-wrap: wrap;
     gap: var(--sp-3);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    gap: var(--sp-4);
   }
   .stack {
     display: grid;

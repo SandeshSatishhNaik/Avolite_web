@@ -1,0 +1,151 @@
+---
+import StatusTag from './StatusTag.astro';
+import { dataset, cell, requireIssued, fmt, columnLabel } from '../../lib/data.ts';
+import { REPO } from '../../lib/site.ts';
+
+interface Props {
+  datasetId: string;
+}
+
+const { datasetId } = Astro.props;
+const ds = dataset(datasetId);
+const fileName = ds.source.path.split('/').pop();
+// Identifier columns (unit null) are row labels, not measurements. Every other cell is issued by data.ts.
+const rows = ds.rows.map((row, i) =>
+  ds.columns.map((col) => {
+    const v = row[col.key];
+    if (col.unit === null) return { col, id: `T${v}`, tagged: null };
+    return { col, id: null, tagged: v == null ? null : requireIssued(cell(datasetId, i, col.key), 'ResultTable') };
+  }),
+);
+---
+
+<table class="rt" role="table">
+  <caption>
+    <strong class="rt__title">{ds.title}</strong>
+    <span class="rt__scenario">{ds.scenario}</span>
+    <span class="rt__src">
+      <StatusTag status={ds.status} provenance={fileName} />
+      <a href={REPO.blob(ds.source.path)}>{ds.source.path}</a>
+    </span>
+  </caption>
+  <thead role="rowgroup">
+    <tr role="row">
+      {ds.columns.map((col) => <th scope="col" role="columnheader">{columnLabel(col)}</th>)}
+    </tr>
+  </thead>
+  <tbody role="rowgroup">
+    {
+      rows.map((cells) => (
+        <tr role="row">
+          {cells.map(({ col, id, tagged }) =>
+            id !== null ? (
+              <th scope="row" role="rowheader" data-label={columnLabel(col)}>{id}</th>
+            ) : (
+              <td role="cell" data-label={columnLabel(col)}>
+                {tagged ? <data value={String(tagged.value)} data-status={tagged.status}>{fmt(tagged.value, col.precision)}</data> : '–'}
+              </td>
+            ),
+          )}
+        </tr>
+      ))
+    }
+  </tbody>
+</table>
+
+<style>
+  .rt {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums slashed-zero;
+  }
+  caption {
+    display: grid;
+    gap: var(--sp-2);
+    padding-bottom: var(--sp-4);
+    text-align: left;
+    color: var(--text-2);
+  }
+  .rt__title {
+    color: var(--text-1);
+  }
+  .rt__src {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-2) var(--sp-4);
+    font-family: var(--ff-mono);
+    font-size: var(--fs-label);
+    overflow-wrap: anywhere;
+  }
+  .rt__src a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  th,
+  td {
+    padding: var(--sp-3) var(--sp-3);
+    border-bottom: 1px solid var(--line);
+    text-align: right;
+    font-weight: 400;
+  }
+  thead th {
+    background: var(--bg-2);
+    color: var(--text-1);
+    font-size: var(--fs-small);
+    line-height: var(--lh-small);
+    vertical-align: bottom;
+  }
+  tbody th {
+    text-align: left;
+    color: var(--text-1);
+    font-family: var(--ff-mono);
+  }
+  td {
+    color: var(--text-1);
+  }
+
+  @media (max-width: 767.98px) {
+    .rt,
+    tbody {
+      display: block;
+    }
+    caption {
+      display: grid;
+    }
+    thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+    tbody tr {
+      display: grid;
+      margin-bottom: var(--sp-3);
+      background: var(--bg-1);
+      border: 1px solid var(--line);
+      border-radius: var(--r-panel);
+    }
+    th,
+    td {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--sp-4);
+      border-bottom: 1px solid var(--line);
+    }
+    tbody tr > :last-child {
+      border-bottom: 0;
+    }
+    td::before,
+    tbody th::before {
+      content: attr(data-label);
+      color: var(--text-2);
+      font-family: var(--ff-body);
+      font-size: var(--fs-small);
+      text-align: left;
+    }
+  }
+</style>

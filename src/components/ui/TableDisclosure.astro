@@ -1,0 +1,29 @@
+---
+import ResultTable from './ResultTable.astro';
+
+interface Props {
+  datasetId: string;
+}
+
+const { datasetId } = Astro.props;
+---
+
+<details class="disclosure">
+  <summary>View as table</summary>
+  <ResultTable datasetId={datasetId} />
+</details>
+
+<style>
+  .disclosure {
+    margin-top: var(--sp-4);
+  }
+  summary {
+    min-height: 44px;
+    padding-block: var(--sp-3);
+    color: var(--text-1);
+    cursor: pointer;
+  }
+  .disclosure[open] summary {
+    margin-bottom: var(--sp-3);
+  }
+</style>

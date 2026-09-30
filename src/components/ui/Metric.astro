@@ -1,0 +1,75 @@
+---
+import StatusTag from './StatusTag.astro';
+import { requireIssued, fmt } from '../../lib/data.ts';
+import type { Tagged } from '../../lib/data.ts';
+
+interface Props {
+  tagged: Tagged;
+  size?: 'xl' | 'm';
+  precision?: number;
+}
+
+// DATA-02: a number without a status, or any literal not issued by data.ts, throws here and fails the build.
+const t = requireIssued(Astro.props.tagged, 'Metric');
+const { size = 'xl' } = Astro.props;
+const precision = Astro.props.precision ?? t.precision ?? 0;
+const countup = t.status === 'SIMULATED' || t.status === 'BUILT';
+// Repo file paths show as the file name; free-text sources (illustrative) show as given.
+const provenance = /^[\w./-]+\.\w+$/.test(t.source) ? t.source.split('/').pop() : t.source;
+---
+
+<div class={`metric metric--${t.status.toLowerCase()} metric--${size}`} data-status={t.status}>
+  <p class="metric__figure">
+    <data class="metric__value" value={String(t.value)} data-status={t.status} data-countup={countup ? '' : undefined}>{fmt(t.value, precision)}</data>
+    {t.unit && <span class="metric__unit mono">{t.unit}</span>}
+  </p>
+  <p class="metric__label">{t.label}</p>
+  <StatusTag status={t.status} provenance={provenance} />
+</div>
+
+<style>
+  .metric {
+    display: grid;
+    justify-items: start;
+    align-content: start;
+    gap: var(--sp-2);
+    padding: var(--sp-5);
+    background: var(--bg-1);
+    border: 1px solid var(--line);
+    border-radius: var(--r-panel);
+  }
+  p {
+    margin: 0;
+  }
+  .metric__figure {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+  }
+  .metric__value {
+    font-family: var(--ff-display);
+    font-stretch: 100%;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums slashed-zero;
+    line-height: var(--lh-readout);
+    color: var(--text-1);
+    font-size: var(--fs-readout-xl);
+  }
+  .metric--m .metric__value {
+    font-size: var(--fs-readout-m);
+  }
+  .metric__unit {
+    color: var(--text-3);
+  }
+  .metric__label {
+    color: var(--text-2);
+  }
+  .metric--illustrative {
+    border: 1px dashed var(--st-illustrative);
+    background-image: repeating-linear-gradient(45deg, color-mix(in srgb, var(--st-illustrative) 10%, transparent) 0 2px, transparent 2px 8px);
+  }
+  .metric--illustrative .metric__value {
+    color: var(--text-2);
+  }
+</style>
