@@ -1,0 +1,104 @@
+{
+  "repo": {
+    "slug": "abhishekpj0902-apj/AVOLITE",
+    "commit": "9b985ca7f8ef99000724f8ce870918a40d0d95c8"
+  },
+  "datasets": [
+    {
+      "id": "cfar-a",
+      "title": "CFAR five-target detection",
+      "status": "SIMULATED",
+      "scenario": "Five synthetic targets at 25–145 m, SARRS radar-echo testbed",
+      "source": {
+        "repo": "abhishekpj0902-apj/AVOLITE",
+        "commit": "9b985ca7f8ef99000724f8ce870918a40d0d95c8",
+        "path": "04_MATLAB/DSP/SARRS_Results/CFAR_Performance/CFAR_Performance_Table.csv",
+        "sha256": "3cccc3c2361ddee56be163798cd461e02c0653a5d2901097d82d32e32ab51d6b"
+      },
+      "columns": [
+        {
+          "key": "Target",
+          "unit": null,
+          "precision": 0
+        },
+        {
+          "key": "ExpectedRange_m",
+          "unit": "m",
+          "precision": 1
+        },
+        {
+          "key": "DetectedRange_m",
+          "unit": "m",
+          "precision": 1
+        },
+        {
+          "key": "RangeError_m",
+          "unit": "m",
+          "precision": 1
+        },
+        {
+          "key": "ExpectedVelocity_mps",
+          "unit": "m/s",
+          "precision": 3
+        },
+        {
+          "key": "DetectedVelocity_mps",
+          "unit": "m/s",
+          "precision": 3
+        },
+        {
+          "key": "VelocityError_mps",
+          "unit": "m/s",
+          "precision": 3
+        }
+      ],
+      "rows": [
+        {
+          "Target": 1,
+          "ExpectedRange_m": 25,
+          "DetectedRange_m": 25.5,
+          "RangeError_m": 0.5,
+          "ExpectedVelocity_mps": 10,
+          "DetectedVelocity_mps": 9.8924512987013,
+          "VelocityError_mps": -0.107548701298702
+        },
+        {
+          "Target": 2,
+          "ExpectedRange_m": 50,
+          "DetectedRange_m": 49.5,
+          "RangeError_m": -0.5,
+          "ExpectedVelocity_mps": -15,
+          "DetectedVelocity_mps": -14.8386769480519,
+          "VelocityError_mps": 0.161323051948054
+        },
+        {
+          "Target": 3,
+          "ExpectedRange_m": 75,
+          "DetectedRange_m": 75,
+          "RangeError_m": 0,
+          "ExpectedVelocity_mps": 5,
+          "DetectedVelocity_mps": 4.94622564935065,
+          "VelocityError_mps": -0.0537743506493511
+        },
+        {
+          "Target": 4,
+          "ExpectedRange_m": 110,
+          "DetectedRange_m": 109.5,
+          "RangeError_m": -0.5,
+          "ExpectedVelocity_mps": -8,
+          "DetectedVelocity_mps": -7.99005681818182,
+          "VelocityError_mps": 0.00994318181818343
+        },
+        {
+          "Target": 5,
+          "ExpectedRange_m": 145,
+          "DetectedRange_m": 145.5,
+          "RangeError_m": 0.5,
+          "ExpectedVelocity_mps": 20,
+          "DetectedVelocity_mps": 20.1653814935065,
+          "VelocityError_mps": 0.165381493506491
+        }
+      ]
+    }
+  ]
+}

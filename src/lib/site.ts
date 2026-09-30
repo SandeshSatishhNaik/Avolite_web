@@ -11,3 +11,12 @@ export const SECTIONS = [
 ] as const;
 
 export type Section = (typeof SECTIONS)[number];
+
+// Upstream MATLAB repo pin. Duplicated from scripts/ingest.mjs on purpose; tests/data.test.mjs asserts they match.
+export const REPO = {
+  slug: 'abhishekpj0902-apj/AVOLITE',
+  commit: '9b985ca7f8ef99000724f8ce870918a40d0d95c8',
+  blob(path: string): string {
+    return `https://github.com/${REPO.slug}/blob/${REPO.commit}/${path}`;
+  },
+};
