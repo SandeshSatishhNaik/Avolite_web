@@ -1,0 +1,14 @@
+{
+  "definitions": { "snr": null },
+  "illustrative": [
+    {
+      "id": "env-noise-floor-example",
+      "label": "Noise floor (example dashboard field)",
+      "value": -92,
+      "unit": "dBm",
+      "status": "ILLUSTRATIVE",
+      "from": "Example value from the AVOLITE design documentation — not a measurement",
+      "note": "Master doc §23, \"illustrative UI values only\""
+    }
+  ]
+}
