@@ -29,11 +29,13 @@ function scan(text) {
     .replace(/\/\*[\s\S]*?\*\//g, '')
     .replace(/<!--[\s\S]*?-->/g, '')
     .replace(/(^|\s)\/\/.*$/gm, '$1')
+    .replace(/href\s*=\s*(["'])#[^"']*\1/g, '') // in-page anchors and sprite refs
+    .replace(/url\(\s*["']?#[^)]*\)/g, '') // url(#id) paint references
     .split(/\r?\n/)
     .filter((l) => !l.includes('name="theme-color"'))
     .join('\n');
   const hits = [];
-  for (const m of clean.matchAll(/(?<=[:(,\s])#([0-9a-fA-F]+)(?![\w-])/g)) {
+  for (const m of clean.matchAll(/(?<=[:(,\s"'])#([0-9a-fA-F]+)(?![\w-])/g)) {
     if ([3, 4, 6, 8].includes(m[1].length)) hits.push(m[0]);
   }
   for (const m of clean.matchAll(/\b(?:rgba?|hsla?)\(/g)) hits.push(m[0]);
@@ -75,5 +77,8 @@ test('lint self-check: scanner flags literals and ignores exemptions', () => {
   assert.ok(scan('a { font-family: Arial, sans-serif; }').length > 0);
   assert.equal(scan('a { font-family: var(--ff-body); color: var(--text-1); }').length, 0);
   assert.equal(scan('<meta name="theme-color" content="#050B16" />').length, 0);
+  assert.ok(scan('<path fill="#ff0000"/>').length > 0);
+  assert.ok(scan("<path stroke='#abc'/>").length > 0);
+  assert.equal(scan('<a href="#dead">x</a> <path fill="url(#beef)" filter="url(#fade)"/>').length, 0);
   assert.equal(scan('<a href="#built">x</a> <use href="#lg-mark" /> /* #ff0000 */').length, 0);
 });
