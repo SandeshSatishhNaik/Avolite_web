@@ -236,3 +236,27 @@ In `Base.astro` use `new URL(Astro.url.pathname, Astro.site)`. Consider failing 
 _Reviewed: 2026-10-01_
 _Reviewer: Claude (gsd-code-reviewer)_
 _Depth: standard_
+
+## Fix log
+
+Applied 2026-10-01 (one atomic `fix(01): ...` commit per finding, plus a lockfile sync for WR-04).
+
+| ID | Status | Note |
+|----|--------|------|
+| WR-01 | fixed | Close fallback in `shell.ts`; Playwright test removes `command` from `HTMLButtonElement.prototype` and the attributes, then opens and closes via JS. |
+| WR-02 | deferred | CSP and headers move to Phase 6 QA. |
+| WR-03 | fixed | `||` chain, build-time `console.warn` for the placeholder, canonical from `Astro.url.pathname`. The "fail build on main without SITE_URL" option was not taken. |
+| WR-04 | fixed | `engines.node` is `>=22.18.0` in `package.json`, `package-lock.json` and `config.test.mjs`. |
+| WR-05 | fixed | Lint catches quoted attribute hex. `href="#..."` and `url(#...)` are exempt. Self-check fixtures added. Named colours and `hwb()`/`lab()`/`oklch()` remain unchecked. |
+| WR-06 | fixed | Favicon filter removed. |
+| WR-07 | fixed | `retries`/`forbidOnly` on CI, CLS specs serial, `document.fonts.ready` plus two rAFs plus a 250 ms settle, init script registered before `setViewportSize`. |
+| IN-01 | fixed | `html { scroll-padding-top: var(--header-h) }`. Section and hero `scroll-margin-top` removed so the two do not stack. The anchor test still passes. |
+| IN-02 | fixed | `role="list"` on both nav `<ol>`s. |
+| IN-03 | fixed | `aria-current="location"` in `shell.ts`, CSS and tests. |
+| IN-04 | deferred | Glyph-subset check. |
+| IN-05 | deferred | Breakpoint cross-reference comments. |
+| IN-06 | fixed | `scrollbar-gutter: stable` on `html`. |
+| IN-07 | fixed | `.env`, `.env.*`, `.wrangler`, `.DS_Store`, `*.log` ignored. |
+| IN-08 | deferred | `dist` dependency and budget-test blind spots. |
+
+Verification: `npm run check && npm run build && npm test && npm run test:e2e` all pass (34 node tests, 24 e2e tests).
