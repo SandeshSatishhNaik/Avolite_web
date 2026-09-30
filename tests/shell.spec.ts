@@ -122,6 +122,25 @@ test.describe('mobile menu group', () => {
   });
 });
 
+test.describe('invoker fallback group', () => {
+  test.use({ viewport: { width: 390, height: 800 } });
+
+  test('without Invoker Commands the JS fallback opens and closes the menu', async ({ page }) => {
+    await page.addInitScript(() => {
+      delete (HTMLButtonElement.prototype as unknown as { command?: unknown }).command;
+    });
+    await page.goto('/');
+    expect(await page.evaluate(() => 'command' in HTMLButtonElement.prototype)).toBe(false);
+    // Strip the declarative attributes so only the JS handlers can act.
+    await page.evaluate(() => document.querySelectorAll('[command]').forEach((b) => b.removeAttribute('command')));
+    const dialog = page.locator('dialog#menu');
+    await page.locator('[data-menu-open]').click();
+    await expect(dialog).toBeVisible();
+    await dialog.getByRole('button', { name: 'Close' }).click();
+    await expect(dialog).toBeHidden();
+  });
+});
+
 test.describe('JS off group', () => {
   test.use({ javaScriptEnabled: false, viewport: { width: 390, height: 800 } });
 

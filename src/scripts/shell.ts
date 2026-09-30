@@ -4,7 +4,10 @@ const menu = document.querySelector<HTMLDialogElement>('#menu');
 const menuBtn = document.querySelector<HTMLButtonElement>('[data-menu-open]');
 if (menu && menuBtn) {
   // Invoker Commands cover modern browsers (and JS off); this is the older-browser fallback.
-  if (!('command' in HTMLButtonElement.prototype)) menuBtn.addEventListener('click', () => menu.showModal());
+  if (!('command' in HTMLButtonElement.prototype)) {
+    menuBtn.addEventListener('click', () => menu.showModal());
+    menu.querySelector('[command="close"]')?.addEventListener('click', () => menu.close());
+  }
   // Link click closes the sheet; default hash navigation still runs.
   menu.addEventListener('click', (e) => {
     if (e.target instanceof Element && e.target.closest('a')) menu.close();
