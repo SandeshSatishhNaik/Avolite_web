@@ -122,3 +122,156 @@ main > section[data-section] {
 #main:focus {
   outline: none;
 }
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--header-h);
+  background: color-mix(in srgb, var(--bg-0) 92%, transparent);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: var(--sp-4);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-height: 44px;
+}
+
+.site-nav {
+  display: none;
+}
+
+.site-nav ol,
+#menu ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav ol {
+  display: flex;
+  gap: var(--sp-1);
+}
+
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-height: 44px;
+  padding-inline: var(--sp-2);
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--text-2);
+  font-size: var(--fs-small);
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover {
+  color: var(--text-1);
+}
+
+.site-nav a[aria-current="true"] {
+  color: var(--text-1);
+  border-bottom-color: var(--signal);
+}
+
+.menu-btn {
+  min-height: 44px;
+  padding-inline: var(--sp-4);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-panel);
+  background: transparent;
+  color: var(--text-1);
+  font: inherit;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .site-nav {
+    display: block;
+  }
+
+  [data-menu-open] {
+    display: none;
+  }
+}
+
+/* 1024-1279: numbers only; names stay in each link's aria-label. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .site-nav .nav-name {
+    display: none;
+  }
+
+  .site-nav a {
+    min-width: 44px;
+    justify-content: center;
+  }
+}
+
+/* Mobile menu sheet. Never set display on the closed dialog. */
+dialog#menu {
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  border: 0;
+  padding: var(--sp-4) var(--margin);
+  background: var(--bg-0);
+  color: var(--text-1);
+  overflow-y: auto;
+}
+
+dialog#menu[open] {
+  display: block;
+}
+
+dialog#menu::backdrop {
+  background: var(--bg-0);
+}
+
+.menu-head {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--sp-4);
+}
+
+#menu a {
+  display: block;
+  min-height: 44px;
+  padding-block: var(--sp-3);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+#menu .menu-title {
+  color: var(--text-1);
+}
+
+#menu small {
+  display: block;
+  color: var(--text-2);
+  font-size: var(--fs-small);
+}
+
+#menu a[aria-current="true"] {
+  border-left: 2px solid var(--signal);
+  padding-left: var(--sp-3);
+}
+
+/* Modal dialogs do not lock body scroll by themselves. */
+body:has(dialog[open]) {
+  overflow: hidden;
+}

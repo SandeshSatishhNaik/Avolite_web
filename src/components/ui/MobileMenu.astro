@@ -1,0 +1,18 @@
+---
+import { SECTIONS } from '../../lib/site';
+---
+
+<dialog id="menu" aria-label="Sections">
+  <div class="menu-head">
+    <button class="menu-btn" type="button" command="close" commandfor="menu" autofocus>Close</button>
+  </div>
+  <nav aria-label="Sections menu">
+    <ol>
+      {SECTIONS.map((s) => (
+        <li>
+          <a href={`#${s.id}`}><span class="mono">{s.n}</span> <span class="menu-title">{s.title}</span><small>{s.subtitle}</small></a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+</dialog>

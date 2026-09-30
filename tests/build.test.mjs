@@ -100,3 +100,50 @@ test('skip link is the first anchor and main is a focus target', () => {
   assert.match(firstA, /href="#main"/);
   assert.match(body, /<main id="main" tabindex="-1"/);
 });
+
+// ---- Header, menu, budgets (plan 01-03 task 2) ----
+const navLinks = (navOpen) => {
+  const i = body.indexOf(navOpen);
+  assert.ok(i >= 0, `${navOpen} missing`);
+  const block = body.slice(i, body.indexOf('</nav>', i));
+  return [...block.matchAll(/<a\b[^>]*>/g)].map((m) => m[0]);
+};
+
+test('header nav lists 8 section links in order', () => {
+  const links = navLinks('<nav class="site-nav" aria-label="Sections"');
+  assert.deepEqual(links.map((t) => attr(t, 'href')), SECTIONS.map((s) => `#${s.id}`));
+});
+
+test('mobile dialog lists 8 links with SECTIONS subtitles', () => {
+  const d = body.indexOf('<dialog id="menu"');
+  assert.ok(d >= 0, 'no dialog#menu');
+  assert.match(body.slice(d, d + 200), /aria-label="[^"]+"/);
+  const links = navLinks('<nav aria-label="Sections menu"');
+  assert.deepEqual(links.map((t) => attr(t, 'href')), SECTIONS.map((s) => `#${s.id}`));
+  const dialog = body.slice(d, body.indexOf('</dialog>', d));
+  const smalls = [...dialog.matchAll(/<small>([^<]*)<\/small>/g)].map((m) => m[1]);
+  assert.deepEqual(smalls, SECTIONS.map((s) => s.subtitle));
+});
+
+test('brand link and Menu button are wired', () => {
+  const brand = body.match(/<a[^>]*class="brand"[^>]*>/)?.[0] ?? '';
+  assert.equal(attr(brand, 'href'), '#top');
+  assert.equal(attr(brand, 'aria-label'), 'AVOLITE home');
+  const btn = body.match(/<button\b[^>]*data-menu-open[^>]*>/)?.[0] ?? '';
+  assert.match(btn, /command="show-modal"/);
+  assert.match(btn, /commandfor="menu"/);
+});
+
+test('a module script is emitted', () => {
+  assert.match(body, /<script\b[^>]*type="module"/);
+});
+
+test('CSS gzip within 25 KB; JS gzip within 70 KB and Phase 1 cap 10 KB', () => {
+  const gz = (list) => list.reduce((n, f) => n + gzipSync(readFileSync(f)).length, 0);
+  const css = gz(files.filter((f) => f.endsWith('.css')));
+  const inline = [...html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].reduce((n, m) => n + gzipSync(m[1]).length, 0);
+  assert.ok(css + inline <= 25 * 1024, `css ${css + inline} B`);
+  const js = gz(files.filter((f) => f.endsWith('.js')));
+  assert.ok(js <= 70 * 1024, `js ${js} B`);
+  assert.ok(js <= 10 * 1024, `js ${js} B exceeds Phase 1 sanity cap`);
+});

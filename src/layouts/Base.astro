@@ -3,6 +3,7 @@ import { Font } from 'astro:assets';
 import '../styles/tokens.css';
 import '../styles/global.css';
 import SkipLink from '../components/ui/SkipLink.astro';
+import Header from '../components/ui/Header.astro';
 import LogoSprite from '../components/ui/LogoSprite.astro';
 
 interface Props {
@@ -34,6 +35,8 @@ const {
   <body>
     <SkipLink />
     <LogoSprite />
+    <Header />
     <main id="main" tabindex="-1"><slot /></main>
+    <script src="../scripts/shell.ts"></script>
   </body>
 </html>

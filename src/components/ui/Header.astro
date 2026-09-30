@@ -1,0 +1,25 @@
+---
+import Logo from './Logo.astro';
+import MobileMenu from './MobileMenu.astro';
+import { SECTIONS } from '../../lib/site';
+---
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="#top" aria-label="AVOLITE home">
+      <Logo variant="mark" label={null} />
+      <Logo variant="wordmark" label={null} />
+    </a>
+    <nav class="site-nav" aria-label="Sections">
+      <ol>
+        {SECTIONS.map((s) => (
+          <li>
+            <a href={`#${s.id}`} aria-label={`${s.n} ${s.short}`}><span class="mono nav-n">{s.n}</span><span class="nav-name">{s.short}</span></a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+    <button class="menu-btn" type="button" data-menu-open command="show-modal" commandfor="menu" aria-haspopup="dialog">Menu</button>
+  </div>
+</header>
+<MobileMenu />
