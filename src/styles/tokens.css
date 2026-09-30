@@ -29,6 +29,9 @@
   --st-planned: #9AA8BA;
   --st-illustrative: #C9B98F;
 
+  /* White plate matching MATLAB exports (UI-05); figures are never recoloured */
+  --plate: #FFFFFF;
+
   /* Logo brand (green on light surfaces only) */
   --brand-khaki: #BCAC87;
   --brand-green: #2D4639;

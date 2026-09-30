@@ -1,0 +1,48 @@
+---
+import StatusTag from './StatusTag.astro';
+import { STATUS, STATUS_IDS } from '../../lib/status.ts';
+---
+
+<dl class="legend">
+  {
+    STATUS_IDS.map((s) => (
+      <div class="legend__row">
+        <dt><StatusTag status={s} /></dt>
+        <dd>{STATUS[s].definition}</dd>
+      </div>
+    ))
+  }
+</dl>
+
+<style>
+  .legend {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-3) var(--sp-6);
+    margin: 0;
+  }
+  .legend__row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-2);
+    padding: var(--sp-3) var(--sp-4);
+    background: var(--bg-1);
+    border: 1px solid var(--line);
+    border-radius: var(--r-panel);
+  }
+  dt,
+  dd {
+    margin: 0;
+  }
+  dd {
+    color: var(--text-2);
+    font-size: var(--fs-small);
+    line-height: var(--lh-small);
+  }
+  @media (min-width: 768px) {
+    .legend {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

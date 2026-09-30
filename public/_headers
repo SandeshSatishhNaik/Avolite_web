@@ -4,3 +4,9 @@
 
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+
+/preview
+  X-Robots-Tag: noindex
+
+/preview/*
+  X-Robots-Tag: noindex

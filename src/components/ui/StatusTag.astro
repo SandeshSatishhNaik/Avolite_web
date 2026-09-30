@@ -1,0 +1,70 @@
+---
+import { STATUS, STATUS_IDS } from '../../lib/status.ts';
+import type { Status } from '../../lib/status.ts';
+
+interface Props {
+  status: Status;
+  provenance?: string;
+}
+
+const { status, provenance } = Astro.props;
+if (!STATUS_IDS.includes(status)) throw new Error(`StatusTag: unknown status ${String(status)}`);
+const s = STATUS[status];
+---
+
+<span class={`tag tag--${status.toLowerCase()}`} data-status={status} style={`--tag-c: var(${s.token}); --tag-bs: ${s.border}`}>
+  <svg aria-hidden="true" focusable="false" width="12" height="12" viewBox="0 0 12 12" data-glyph={s.glyph}>
+    {s.glyph === 'square' && <rect x="1" y="1" width="10" height="10" fill="currentColor" />}
+    {s.glyph === 'circle' && <circle cx="6" cy="6" r="5" fill="currentColor" />}
+    {
+      s.glyph === 'half-circle' && (
+        <>
+          <circle cx="6" cy="6" r="4.25" fill="none" stroke="currentColor" stroke-width="1.5" />
+          <path d="M6 1.75A4.25 4.25 0 0 1 6 10.25Z" fill="currentColor" />
+        </>
+      )
+    }
+    {s.glyph === 'ring' && <circle cx="6" cy="6" r="4.25" fill="none" stroke="currentColor" stroke-width="1.5" />}
+    {s.glyph === 'dashed-ring' && <circle cx="6" cy="6" r="4.25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2.2 1.6" />}
+    {
+      s.glyph === 'hatched-square' && (
+        <>
+          <rect x="0.75" y="0.75" width="10.5" height="10.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+          <path d="M2 10 10 2M2 6.5 6.5 2M5.5 10 10 5.5" fill="none" stroke="currentColor" stroke-width="1.25" />
+        </>
+      )
+    }
+  </svg>{s.label}{provenance && <span class="tag__prov"> · {provenance}</span>}
+</span>
+
+<style>
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--sp-1);
+    padding: 2px var(--sp-2);
+    border: 1px var(--tag-bs, solid) var(--tag-c);
+    border-radius: var(--r-chip);
+    color: var(--tag-c);
+    font-family: var(--ff-mono);
+    font-size: var(--fs-label);
+    line-height: var(--lh-label);
+    letter-spacing: var(--tracking-label);
+    overflow-wrap: anywhere;
+  }
+  .tag svg {
+    flex: none;
+  }
+  .tag--built,
+  .tag--simulated,
+  .tag--prototype {
+    background-color: color-mix(in srgb, var(--tag-c) 12%, transparent);
+  }
+  .tag--illustrative {
+    background-image: repeating-linear-gradient(45deg, color-mix(in srgb, var(--tag-c) 16%, transparent) 0 2px, transparent 2px 6px);
+  }
+  .tag__prov {
+    color: var(--text-3);
+  }
+</style>
