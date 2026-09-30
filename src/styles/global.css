@@ -6,6 +6,8 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  /* One offset for anchors and focus scrolling (WCAG 2.4.11). Do not add scroll-margin-top: the two stack. */
+  scroll-padding-top: var(--header-h);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -107,7 +109,6 @@ a {
 
 main > section[data-section] {
   min-height: 70vh; /* lets the last section reach the scroll-spy band */
-  scroll-margin-top: var(--header-h);
   padding-block: clamp(var(--sp-9), 12vh, 160px);
   border-top: 1px solid var(--line);
 }
@@ -115,7 +116,6 @@ main > section[data-section] {
 .hero-stub {
   min-height: 60vh;
   padding-block: var(--sp-10) var(--sp-9);
-  scroll-margin-top: var(--header-h);
 }
 
 /* main is only a programmatic skip-link target; interactive controls keep the focus ring. */
