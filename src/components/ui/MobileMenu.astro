@@ -7,7 +7,7 @@ import { SECTIONS } from '../../lib/site';
     <button class="menu-btn" type="button" command="close" commandfor="menu" autofocus>Close</button>
   </div>
   <nav aria-label="Sections menu">
-    <ol>
+    <ol role="list">
       {SECTIONS.map((s) => (
         <li>
           <a href={`#${s.id}`}><span class="mono">{s.n}</span> <span class="menu-title">{s.title}</span><small>{s.subtitle}</small></a>

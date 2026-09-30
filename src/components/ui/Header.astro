@@ -11,7 +11,7 @@ import { SECTIONS } from '../../lib/site';
       <Logo variant="wordmark" label={null} />
     </a>
     <nav class="site-nav" aria-label="Sections">
-      <ol>
+      <ol role="list">
         {SECTIONS.map((s) => (
           <li>
             <a href={`#${s.id}`} aria-label={`${s.n} ${s.short}`}><span class="mono nav-n">{s.n}</span><span class="nav-name">{s.short}</span></a>
