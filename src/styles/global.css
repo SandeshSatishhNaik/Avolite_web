@@ -85,3 +85,40 @@ a {
   white-space: nowrap;
   border: 0;
 }
+
+.skip {
+  position: absolute;
+  left: var(--sp-2);
+  top: -100px;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: var(--sp-4);
+  background: var(--signal);
+  color: var(--bg-0);
+  border-radius: var(--r-panel);
+  text-decoration: none;
+}
+
+.skip:focus {
+  top: var(--sp-2);
+}
+
+main > section[data-section] {
+  min-height: 70vh; /* lets the last section reach the scroll-spy band */
+  scroll-margin-top: var(--header-h);
+  padding-block: clamp(var(--sp-9), 12vh, 160px);
+  border-top: 1px solid var(--line);
+}
+
+.hero-stub {
+  min-height: 60vh;
+  padding-block: var(--sp-10) var(--sp-9);
+  scroll-margin-top: var(--header-h);
+}
+
+/* main is only a programmatic skip-link target; interactive controls keep the focus ring. */
+#main:focus {
+  outline: none;
+}

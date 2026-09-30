@@ -2,7 +2,9 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { gzipSync } from 'node:zlib';
 import { fileURLToPath } from 'node:url';
+import { SECTIONS } from '../src/lib/site.ts';
 
 const dist = fileURLToPath(new URL('../dist/', import.meta.url));
 assert.ok(existsSync(join(dist, 'index.html')), 'dist/index.html missing: run npm run build first');
@@ -66,4 +68,35 @@ test('_headers ships with immutable cache rule', () => {
   const p = join(dist, '_headers');
   assert.ok(existsSync(p));
   assert.ok(readFileSync(p, 'utf8').includes('immutable'));
+});
+
+// ---- Page structure (plan 01-03 task 1) ----
+const body = html.replace(/&#39;/g, "'");
+const sectionTags = [...body.matchAll(/<section\b[^>]*>/g)].map((m) => m[0]);
+const spySections = sectionTags.filter((t) => t.includes('data-section'));
+const attr = (tag, name) => tag.match(new RegExp("[ ]" + name + "=\"([^\"]*)\""))?.[1];
+
+test('exactly 8 data-section sections in SECTIONS order', () => {
+  assert.equal(spySections.length, 8);
+  assert.deepEqual(spySections.map((t) => attr(t, 'id')), SECTIONS.map((s) => s.id));
+});
+
+test('each section has an h2 numbered 01-08', () => {
+  for (const s of SECTIONS) {
+    const re = new RegExp(`<h2[^>]*id="${s.id}-h"[^>]*>[ ]*<span[^>]*>${s.n}</span>[ ]*${s.title}`);
+    assert.match(body, re, `h2 for ${s.id}`);
+  }
+});
+
+test('hero is #top with no data-section', () => {
+  const hero = sectionTags.find((t) => attr(t, 'id') === 'top');
+  assert.ok(hero, 'no #top section');
+  assert.ok(!hero.includes('data-section'));
+});
+
+test('skip link is the first anchor and main is a focus target', () => {
+  const firstA = body.slice(body.indexOf('<body')).match(/<a\b[^>]*>/)[0];
+  assert.match(firstA, /class="skip"/);
+  assert.match(firstA, /href="#main"/);
+  assert.match(body, /<main id="main" tabindex="-1"/);
 });

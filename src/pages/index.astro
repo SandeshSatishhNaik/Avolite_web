@@ -1,10 +1,19 @@
 ---
 import Base from '../layouts/Base.astro';
+import { SECTIONS } from '../lib/site';
 ---
 
 <Base>
-  {/* Hero stub: replaced in Phase 3 (SHELL-04). Holds the page h1. */}
+  {/* Hero stub: replaced in Phase 3 (SHELL-04). Holds the page h1. No data-section: never observed by scroll-spy. */}
   <section id="top" class="hero-stub" aria-labelledby="hero-h">
-    <h1 id="hero-h">AVOLITE</h1>
+    <div class="wrap"><h1 id="hero-h">AVOLITE</h1></div>
   </section>
+  {/* Section bodies arrive in Phase 3. */}
+  {SECTIONS.map((s) => (
+    <section id={s.id} data-section aria-labelledby={`${s.id}-h`}>
+      <div class="wrap">
+        <h2 id={`${s.id}-h`}><span class="mono">{s.n}</span> {s.title}</h2>
+      </div>
+    </section>
+  ))}
 </Base>
