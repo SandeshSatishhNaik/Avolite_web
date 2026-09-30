@@ -164,16 +164,88 @@ Deferred. Tracked but not in the current roadmap.
 
 ## Traceability
 
-Filled by the roadmapper.
-
 | Requirement | Phase | Status |
 |-------------|-------|--------|
+| FND-01 | Phase 1 | Pending |
+| FND-02 | Phase 1 | Pending |
+| FND-03 | Phase 1 | Pending |
+| FND-04 | Phase 3 | Pending |
+| FND-05 | Phase 1 | Pending |
+| DATA-01 | Phase 2 | Pending |
+| DATA-02 | Phase 2 | Pending |
+| DATA-03 | Phase 2 | Pending |
+| DATA-04 | Phase 2 | Pending |
+| DATA-05 | Phase 2 | Pending |
+| DATA-06 | Phase 2 | Pending |
+| DATA-07 | Phase 2 | Pending |
+| UI-01 | Phase 2 | Pending |
+| UI-02 | Phase 2 | Pending |
+| UI-03 | Phase 2 | Pending |
+| UI-04 | Phase 2 | Pending |
+| UI-05 | Phase 2 | Pending |
+| UI-06 | Phase 2 | Pending |
+| UI-07 | Phase 2 | Pending |
+| SHELL-01 | Phase 1 | Pending |
+| SHELL-02 | Phase 1 | Pending |
+| SHELL-03 | Phase 1 | Pending |
+| SHELL-04 | Phase 3 | Pending |
+| SHELL-05 | Phase 3 | Pending |
+| PROB-01 | Phase 3 | Pending |
+| PROB-02 | Phase 3 | Pending |
+| PROB-03 | Phase 3 | Pending |
+| PROB-04 | Phase 3 | Pending |
+| HOW-01 | Phase 3 | Pending |
+| HOW-02 | Phase 3 | Pending |
+| HOW-03 | Phase 4 | Pending |
+| HOW-04 | Phase 3 | Pending |
+| HOW-05 | Phase 3 | Pending |
+| BUILT-01 | Phase 3 | Pending |
+| BUILT-02 | Phase 3 | Pending |
+| BUILT-03 | Phase 3 | Pending |
+| BUILT-04 | Phase 3 | Pending |
+| BUILT-05 | Phase 4 | Pending |
+| BUILT-06 | Phase 3 | Pending |
+| BUILT-07 | Phase 3 | Pending |
+| BUILT-08 | Phase 4 | Pending |
+| NEW-01 | Phase 3 | Pending |
+| NEW-02 | Phase 3 | Pending |
+| NEW-03 | Phase 4 | Pending |
+| NEW-04 | Phase 4 | Pending |
+| NEW-05 | Phase 3 | Pending |
+| DEMO-01 | Phase 3 | Pending |
+| DEMO-02 | Phase 3 | Pending |
+| DEMO-03 | Phase 4 | Pending |
+| DEMO-04 | Phase 4 | Pending |
+| DEMO-05 | Phase 3 | Pending |
+| SECU-01 | Phase 3 | Pending |
+| SECU-02 | Phase 4 | Pending |
+| SECU-03 | Phase 4 | Pending |
+| ROAD-01 | Phase 3 | Pending |
+| ROAD-02 | Phase 3 | Pending |
+| WHY-01 | Phase 3 | Pending |
+| WHY-02 | Phase 3 | Pending |
+| WHY-03 | Phase 3 | Pending |
+| WHY-04 | Phase 3 | Pending |
+| MOT-01 | Phase 4 | Pending |
+| MOT-02 | Phase 4 | Pending |
+| MOT-03 | Phase 4 | Pending |
+| MOT-04 | Phase 4 | Pending |
+| MOT-05 | Phase 4 | Pending |
+| IMG-01 | Phase 3 | Pending |
+| IMG-02 | Phase 5 | Pending |
+| IMG-03 | Phase 2 | Pending |
+| QA-01 | Phase 6 | Pending |
+| QA-02 | Phase 6 | Pending |
+| QA-03 | Phase 6 | Pending |
+| QA-04 | Phase 6 | Pending |
+| QA-05 | Phase 6 | Pending |
+| QA-06 | Phase 6 | Pending |
 
 **Coverage:**
 - v1 requirements: 74 total
-- Mapped to phases: 0
-- Unmapped: 74 ⚠️
+- Mapped to phases: 74
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-09-30*
-*Last updated: 2026-09-30 after initial definition*
+*Last updated: 2026-09-30 after roadmap creation*
