@@ -4,7 +4,6 @@ test('home renders with fonts wired and no console errors', async ({ page }) => 
   const errors: string[] = [];
   page.on('console', (msg) => {
     if (msg.type() !== 'error') return;
-    if (msg.location().url.endsWith('/favicon.svg')) return; // favicon arrives in plan 02
     errors.push(msg.text());
   });
 
