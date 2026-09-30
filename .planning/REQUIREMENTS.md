@@ -37,9 +37,9 @@ Sources: `.planning/PROJECT.md`, `.planning/research/` (FEATURES, DESIGN, ARCHIT
 
 ### Header, hero and footer (SHELL)
 
-- [ ] **SHELL-01**: Sticky header with the AVOLITE logo and numbered links 01–08 that highlight the section in view
-- [ ] **SHELL-02**: Mobile menu (native dialog/popover) lists all 8 sections with one-line subtitles and traps focus
-- [ ] **SHELL-03**: Skip link to main content
+- [x] **SHELL-01**: Sticky header with the AVOLITE logo and numbered links 01–08 that highlight the section in view
+- [x] **SHELL-02**: Mobile menu (native dialog/popover) lists all 8 sections with one-line subtitles and traps focus
+- [x] **SHELL-03**: Skip link to main content
 - [ ] **SHELL-04**: Hero shows the SIH 2026 · PS 26055 eyebrow, AVOLITE headline, one-line explanation, "Begin" and "See how it works" calls to action, a radar-scope SVG, and a status strip; the hero contains no numbers
 - [ ] **SHELL-05**: Footer shows SIH 2026, PS 26055, Team Avoflare (team ID row hidden until supplied), links to the AVOLITE MATLAB repo, the status legend, the data-honesty note, and "Created by Sandesh Naik" linking to github.com/SandeshSatishhNaik
 
@@ -185,9 +185,9 @@ Deferred. Tracked but not in the current roadmap.
 | UI-05 | Phase 2 | Pending |
 | UI-06 | Phase 2 | Pending |
 | UI-07 | Phase 2 | Pending |
-| SHELL-01 | Phase 1 | Pending |
-| SHELL-02 | Phase 1 | Pending |
-| SHELL-03 | Phase 1 | Pending |
+| SHELL-01 | Phase 1 | Complete |
+| SHELL-02 | Phase 1 | Complete |
+| SHELL-03 | Phase 1 | Complete |
 | SHELL-04 | Phase 3 | Pending |
 | SHELL-05 | Phase 3 | Pending |
 | PROB-01 | Phase 3 | Pending |

@@ -10,7 +10,7 @@ Breadth-first build of a static, honesty-first single-page site for AVOLITE (SIH
 - Integer phases (1, 2, 3): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-- [ ] **Phase 1: Shell and stack** - Astro 7 static scaffold, tokens, fonts, cleaned logo, header/nav/mobile menu and 8 anchored section stubs
+- [x] **Phase 1: Shell and stack** - Astro 7 static scaffold, tokens, fonts, cleaned logo, header/nav/mobile menu and 8 anchored section stubs (completed 2026-09-30)
 - [ ] **Phase 2: Data and honesty system** - CSV ingest, zod honesty rules, build checks and the UI primitives every number and tag must pass through
 - [ ] **Phase 3: All sections, static (ship point)** - Hero, sections 01-08 and footer with final copy, real results or honest placeholders, complete with JS off
 - [ ] **Phase 4: Interactives and motion** - Widgets and explainers first, then progressive-enhancement motion (first to be cut)
@@ -32,7 +32,7 @@ Breadth-first build of a static, honesty-first single-page site for AVOLITE (SIH
 **Plans**: 3 plans
 - [x] 01-01-PLAN.md — Astro 7 scaffold, tokens, self-hosted fonts, Base layout, SECTIONS[], Logo contract stub, test infrastructure (wave 1)
 - [x] 01-02-PLAN.md — Logo cleanup script, generated JSON, sprite, Logo component, favicon (wave 2)
-- [ ] 01-03-PLAN.md — 8 anchored sections, sticky header with scroll-spy, dialog mobile menu, skip link, Playwright and axe specs (wave 3, runs after 02; same working tree)
+- [x] 01-03-PLAN.md — 8 anchored sections, sticky header with scroll-spy, dialog mobile menu, skip link, Playwright and axe specs (wave 3, runs after 02; same working tree)
 **UI hint**: yes
 
 ### Phase 2: Data and honesty system
@@ -104,7 +104,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6. Phase 3 is the
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Shell and stack | 2/3 | In Progress|  |
+| 1. Shell and stack | 3/3 | Complete   | 2026-09-30 |
 | 2. Data and honesty system | 0/TBD | Not started | - |
 | 3. All sections, static (ship point) | 0/TBD | Not started | - |
 | 4. Interactives and motion | 0/TBD | Not started | - |
