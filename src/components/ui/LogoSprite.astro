@@ -1,6 +1,20 @@
 ---
-// Stub: plan 02 fills <defs> with lg-mark and lg-word. Importing logo.css here reaches every page.
+// Emitted once per page from Base.astro. Fills come from .lg-g / .lg-k in logo.css (inherited custom properties).
+// <g>, not <symbol>: viewBox lives only on the per-use outer svg in Logo.astro.
 import '../../styles/logo.css';
+import L from '../../lib/logo.generated.json';
 ---
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="lg-mark">
+      <path class="lg-g" d={L.mark.green} />
+      <path class="lg-k" d={L.mark.khaki} />
+    </g>
+    <g id="lg-word">
+      <path class="lg-g" d={L.wordmark.green} />
+      <path class="lg-g" fill-rule="evenodd" d={L.wordmark.holed} />
+      <path class="lg-k" d={L.wordmark.khaki} />
+    </g>
+  </defs>
+</svg>

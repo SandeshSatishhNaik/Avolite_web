@@ -1,5 +1,7 @@
 ---
-// Contract stub: plan 02 replaces the body with the real art. Props and classes are fixed here.
+// Single entry point for the logo. Art lives in LogoSprite (emitted once per page).
+import L from '../../lib/logo.generated.json';
+
 interface Props {
   variant?: 'lockup' | 'mark' | 'wordmark';
   tone?: 'reversed' | 'color';
@@ -8,18 +10,15 @@ interface Props {
 
 const { variant = 'lockup', tone = 'reversed', label = 'AVOLITE' } = Astro.props;
 
-const viewBox = {
-  lockup: '256 50 1471 671',
-  mark: '443 50 1081 492',
-  wordmark: '256 571 1471 150',
-}[variant];
+const uses = variant === 'lockup' ? ['lg-mark', 'lg-word'] : [variant === 'mark' ? 'lg-mark' : 'lg-word'];
 ---
 
 <svg
   class={`logo logo--${variant} logo--${tone}`}
-  viewBox={viewBox}
+  viewBox={L.viewBox[variant]}
   role={label ? 'img' : undefined}
   aria-label={label ?? undefined}
   aria-hidden={label ? undefined : 'true'}
 >
+  {uses.map((id) => <use href={`#${id}`} />)}
 </svg>

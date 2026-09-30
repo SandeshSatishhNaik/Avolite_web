@@ -64,3 +64,17 @@ test('favicon: viewBox, background and both brand fills', () => {
 test('logo source: logo.svg still has its background fill', () => {
   assert.ok(readFileSync('logo.svg', 'utf8').includes('#FDFDFD'));
 });
+
+// Build-output group: needs `npm run build` first.
+const count = (hay, needle) => hay.split(needle).length - 1;
+const HTML_PATH = 'dist/index.html';
+const built = existsSync(HTML_PATH);
+const html = built ? readFileSync(HTML_PATH, 'utf8') : '';
+
+test('logo dist: sprite emitted once, favicon built and linked', { skip: built ? false : 'run npm run build first' }, () => {
+  assert.equal(count(html, 'id="lg-mark"'), 1);
+  assert.equal(count(html, 'id="lg-word"'), 1);
+  assert.equal(count(html, L.wordmark.holed), 1);
+  assert.ok(existsSync('dist/favicon.svg'));
+  assert.ok(html.includes('<link rel="icon" href="/favicon.svg"'));
+});
