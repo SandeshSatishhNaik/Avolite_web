@@ -17,13 +17,13 @@ Sources: `.planning/PROJECT.md`, `.planning/research/` (FEATURES, DESIGN, ARCHIT
 
 ### Data honesty (DATA)
 
-- [ ] **DATA-01**: Real results come from repo CSVs copied into the site repo and converted at build time to a typed JSON file; a hand-edited CSV (hash mismatch) fails the build
-- [ ] **DATA-02**: Every displayed number carries a status tier, unit and source; a component asked to render a number without a status fails the build
-- [ ] **DATA-03**: Repo-derived values can only be SIMULATED or BUILT; illustrative values live in a separate list that can only be ILLUSTRATIVE
-- [ ] **DATA-04**: Derived values (max/mean range and velocity error, detection counts) are computed from the data, never typed
-- [ ] **DATA-05**: The headline dataset is `CFAR_Performance_Table.csv`; results from different runs are never merged, and each dataset shows its scenario and source file
-- [ ] **DATA-06**: The Monte Carlo table (100 identical rows) is never shown as a distribution, and the SNR sweep is not shown as a result while its SNR definition is PENDING
-- [ ] **DATA-07**: A build check fails on banned wording in output: "Live", "real-time", "AI"/"ML" next to BUILT, and leftover TODO/TBD/lorem outside marked placeholders
+- [x] **DATA-01**: Real results come from repo CSVs copied into the site repo and converted at build time to a typed JSON file; a hand-edited CSV (hash mismatch) fails the build
+- [x] **DATA-02**: Every displayed number carries a status tier, unit and source; a component asked to render a number without a status fails the build
+- [x] **DATA-03**: Repo-derived values can only be SIMULATED or BUILT; illustrative values live in a separate list that can only be ILLUSTRATIVE
+- [x] **DATA-04**: Derived values (max/mean range and velocity error, detection counts) are computed from the data, never typed
+- [x] **DATA-05**: The headline dataset is `CFAR_Performance_Table.csv`; results from different runs are never merged, and each dataset shows its scenario and source file
+- [x] **DATA-06**: The Monte Carlo table (100 identical rows) is never shown as a distribution, and the SNR sweep is not shown as a result while its SNR definition is PENDING
+- [x] **DATA-07**: A build check fails on banned wording in output: "Live", "real-time", "AI"/"ML" next to BUILT, and leftover TODO/TBD/lorem outside marked placeholders
 
 ### UI primitives (UI)
 
@@ -171,13 +171,13 @@ Deferred. Tracked but not in the current roadmap.
 | FND-03 | Phase 1 | Complete |
 | FND-04 | Phase 3 | Pending |
 | FND-05 | Phase 1 | Complete |
-| DATA-01 | Phase 2 | Pending |
-| DATA-02 | Phase 2 | Pending |
-| DATA-03 | Phase 2 | Pending |
-| DATA-04 | Phase 2 | Pending |
-| DATA-05 | Phase 2 | Pending |
-| DATA-06 | Phase 2 | Pending |
-| DATA-07 | Phase 2 | Pending |
+| DATA-01 | Phase 2 | Complete |
+| DATA-02 | Phase 2 | Complete |
+| DATA-03 | Phase 2 | Complete |
+| DATA-04 | Phase 2 | Complete |
+| DATA-05 | Phase 2 | Complete |
+| DATA-06 | Phase 2 | Complete |
+| DATA-07 | Phase 2 | Complete |
 | UI-01 | Phase 2 | Pending |
 | UI-02 | Phase 2 | Pending |
 | UI-03 | Phase 2 | Pending |
