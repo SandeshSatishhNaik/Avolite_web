@@ -1,0 +1,33 @@
+/* Logo contract. Bare .lg-g / .lg-k selectors on purpose: descendant selectors
+   (.logo .lg-g) do not match inside <use> shadow trees; the custom properties inherit instead. */
+.logo {
+  width: auto;
+  display: block;
+  --logo-green: var(--text-1);
+  --logo-khaki: var(--brand-khaki);
+}
+
+.logo--color {
+  --logo-green: var(--brand-green);
+}
+
+.lg-g {
+  fill: var(--logo-green);
+}
+
+.lg-k {
+  fill: var(--logo-khaki);
+}
+
+.logo--mark {
+  height: 36px;
+}
+
+.logo--wordmark {
+  height: 14px;
+}
+
+/* Footer only (Phase 3); at least 64px so the wordmark stays legible. */
+.logo--lockup {
+  height: 64px;
+}

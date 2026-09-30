@@ -1,0 +1,108 @@
+/* Single source of design values. The only file allowed to hold color and font-family literals. */
+:root {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --bg-0: #050B16;
+  --bg-1: #0B1629;
+  --bg-2: #12213A;
+  --bg-3: #1A2C4B;
+  --line: #1D3050;
+  --line-strong: #4D6D99;
+
+  /* Text */
+  --text-1: #E8EEF6;
+  --text-2: #A3B3C9;
+  --text-3: #8095B0;
+
+  /* Signal and accents */
+  --signal: #3BE4F2;
+  --signal-dim: #2A9DB0;
+  --khaki: #C9B98F;
+  --error: #FF7A7A;
+
+  /* Status */
+  --st-built: #3DDC97;
+  --st-simulated: #6FB3FF;
+  --st-prototype: #F2B84B;
+  --st-designed: #B99CFF;
+  --st-planned: #9AA8BA;
+  --st-illustrative: #C9B98F;
+
+  /* Logo brand (green on light surfaces only) */
+  --brand-khaki: #BCAC87;
+  --brand-green: #2D4639;
+
+  /* Type families (defined by the Astro Fonts API, fallbacks included) */
+  --ff-display: var(--font-display);
+  --ff-body: var(--font-body);
+  --ff-mono: var(--font-mono);
+
+  /* Type scale */
+  --fs-display: clamp(3rem, 1.6rem + 4.4vw, 6rem);
+  --fs-h2: clamp(2.125rem, 1.4rem + 2.4vw, 3.5rem);
+  --fs-h3: clamp(1.375rem, 1.1rem + 0.9vw, 1.75rem);
+  --fs-lead: clamp(1.125rem, 1rem + 0.45vw, 1.3125rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.875rem;
+  --fs-label: 0.75rem;
+  --fs-readout-xl: clamp(3rem, 2rem + 3vw, 4.5rem);
+  --fs-readout-m: 2rem;
+
+  --lh-display: 0.98;
+  --lh-h2: 1.04;
+  --lh-h3: 1.2;
+  --lh-lead: 1.5;
+  --lh-body: 1.6;
+  --lh-small: 1.5;
+  --lh-label: 1.3;
+  --lh-readout: 1;
+  --tracking-label: 0.06em;
+
+  /* Space: 4px scale */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+  --sp-10: 128px;
+  --sp-11: 192px;
+
+  /* Radii (no shadows: elevation = surface + 1px border) */
+  --r-panel: 4px;
+  --r-chip: 2px;
+
+  /* Layout */
+  --header-h: 64px;
+  --frame: 1440px;
+  --margin: 16px;
+
+  /* Motion (unused until Phase 4) */
+  --dur-instant: 120ms;
+  --dur-fast: 200ms;
+  --dur-base: 320ms;
+  --dur-slow: 600ms;
+  --dur-stage: 1500ms;
+  --sweep-period: 6s;
+  --ping: 1200ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-linear: linear;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --margin: 40px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --margin: 80px;
+    --fs-body: 1.125rem;
+  }
+}
