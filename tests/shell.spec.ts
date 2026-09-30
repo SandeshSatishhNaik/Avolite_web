@@ -33,7 +33,7 @@ test.describe('scroll-spy group (reduced motion)', () => {
     await expect(page.locator('.site-nav a[aria-current]')).toHaveCount(0);
 
     await page.locator('.site-nav a[href="#built"]').click();
-    const current = page.locator('.site-nav a[aria-current="true"]');
+    const current = page.locator('.site-nav a[aria-current="location"]');
     await expect(current).toHaveCount(1);
     await expect(current).toHaveAttribute('href', '#built');
 

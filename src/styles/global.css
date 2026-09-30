@@ -182,7 +182,7 @@ main > section[data-section] {
   color: var(--text-1);
 }
 
-.site-nav a[aria-current="true"] {
+.site-nav a[aria-current="location"] {
   color: var(--text-1);
   border-bottom-color: var(--signal);
 }
@@ -267,7 +267,7 @@ dialog#menu::backdrop {
   font-size: var(--fs-small);
 }
 
-#menu a[aria-current="true"] {
+#menu a[aria-current="location"] {
   border-left: 2px solid var(--signal);
   padding-left: var(--sp-3);
 }

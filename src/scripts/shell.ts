@@ -30,7 +30,7 @@ const io = new IntersectionObserver(
     }
     const active = [...secs].reverse().find((s) => inBand.has(s.id))?.id; // undefined over the hero clears all
     for (const a of links) {
-      if (a.getAttribute('href') === `#${active}`) a.setAttribute('aria-current', 'true');
+      if (a.getAttribute('href') === `#${active}`) a.setAttribute('aria-current', 'location');
       else a.removeAttribute('aria-current');
     }
   },
