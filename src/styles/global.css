@@ -8,6 +8,7 @@ html {
   -webkit-text-size-adjust: 100%;
   /* One offset for anchors and focus scrolling (WCAG 2.4.11). Do not add scroll-margin-top: the two stack. */
   scroll-padding-top: var(--header-h);
+  scrollbar-gutter: stable; /* body scroll-lock must not shift the page */
 }
 
 @media (prefers-reduced-motion: no-preference) {
