@@ -1,0 +1,25 @@
+---
+// Contract stub: plan 02 replaces the body with the real art. Props and classes are fixed here.
+interface Props {
+  variant?: 'lockup' | 'mark' | 'wordmark';
+  tone?: 'reversed' | 'color';
+  label?: string | null;
+}
+
+const { variant = 'lockup', tone = 'reversed', label = 'AVOLITE' } = Astro.props;
+
+const viewBox = {
+  lockup: '256 50 1471 671',
+  mark: '443 50 1081 492',
+  wordmark: '256 571 1471 150',
+}[variant];
+---
+
+<svg
+  class={`logo logo--${variant} logo--${tone}`}
+  viewBox={viewBox}
+  role={label ? 'img' : undefined}
+  aria-label={label ?? undefined}
+  aria-hidden={label ? undefined : 'true'}
+>
+</svg>

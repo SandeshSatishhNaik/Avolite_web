@@ -1,6 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
 
-const PORT = process.env.E2E_PORT ?? '4321';
+// No @types/node in the audited dependency set; declare the one global used here.
+declare const process: { env: Record<string, string | undefined> };
+
+const PORT =process.env.E2E_PORT ?? '4321';
 const baseURL = `http://localhost:${PORT}`;
 
 export default defineConfig({
