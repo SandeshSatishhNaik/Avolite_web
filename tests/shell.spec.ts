@@ -157,7 +157,6 @@ test.describe('JS off group', () => {
 type Shift = { value: number; hadRecentInput: boolean };
 
 async function layoutShift(page: Page, width: number, height: number) {
-  await page.setViewportSize({ width, height });
   await page.addInitScript(() => {
     const w = window as unknown as { __cls: Shift[] };
     w.__cls = [];
@@ -168,23 +167,32 @@ async function layoutShift(page: Page, width: number, height: number) {
       }
     }).observe({ type: 'layout-shift', buffered: true });
   });
-  await page.goto('/');
-  await page.evaluate(() => document.fonts.ready);
-  await page.waitForTimeout(1000);
+  await page.setViewportSize({ width, height });
+  await page.goto('/', { waitUntil: 'load' });
+  // Deterministic settle: fonts loaded, then two frames so late shifts are reported.
+  await page.evaluate(
+    () =>
+      document.fonts.ready.then(() => new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(() => r())))),
+  );
+  await page.waitForTimeout(250);
   return page.evaluate(() => {
     const w = window as unknown as { __cls: Shift[] };
     return w.__cls.filter((e) => !e.hadRecentInput).reduce((n, e) => n + e.value, 0);
   });
 }
 
-for (const [w, h] of [
-  [390, 800],
-  [1440, 900],
-] as const) {
-  test(`layout shift at ${w}px is at most 0.01`, async ({ page }) => {
-    expect(await layoutShift(page, w, h)).toBeLessThanOrEqual(0.01);
-  });
-}
+// Serial: font timing varies when heavy specs share one preview server.
+test.describe('layout shift', () => {
+  test.describe.configure({ mode: 'serial' });
+  for (const [w, h] of [
+    [390, 800],
+    [1440, 900],
+  ] as const) {
+    test(`layout shift at ${w}px is at most 0.01`, async ({ page }) => {
+      expect(await layoutShift(page, w, h)).toBeLessThanOrEqual(0.01);
+    });
+  }
+});
 
 for (const width of [1024, 1100, 1279, 1280]) {
   test(`header fit at ${width}px`, async ({ page }) => {
