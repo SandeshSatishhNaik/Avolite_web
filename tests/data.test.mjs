@@ -241,6 +241,19 @@ test('origin check: requireIssued rejects hand-built literals and copies', () =>
   }
 });
 
+test('WR-02: issued values and parsed data are frozen', () => {
+  const m = metric('cfar-a', 'maxAbsRangeError');
+  assert.ok(Object.isFrozen(m));
+  assert.throws(() => {
+    m.value = 38;
+  }, TypeError);
+  assert.ok(Object.isFrozen(illustrative('env-noise-floor-example')));
+  assert.ok(Object.isFrozen(cell('cfar-a', 0, 'DetectedRange_m')));
+  assert.throws(() => {
+    dataset('cfar-a').rows[0].DetectedRange_m = 1;
+  }, TypeError);
+});
+
 test('fmt(): precision, U+2212, no negative zero', () => {
   assert.equal(fmt(-0.5, 1), '−0.5');
   assert.equal(fmt(0, 1), '0.0');

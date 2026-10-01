@@ -91,7 +91,11 @@ export function validate(rawResults: unknown, rawClaims: unknown) {
 }
 
 // Module load throws on any rule violation, which fails `astro build` for any page that imports this.
-export const data = validate(results, claims);
+const deepFreeze = <T>(o: T): T => {
+  if (o && typeof o === 'object') for (const v of Object.values(o)) deepFreeze(v);
+  return Object.freeze(o);
+};
+export const data = deepFreeze(validate(results, claims));
 
 export type Dataset = (typeof data)['datasets'][number];
 type Column = Dataset['columns'][number];
@@ -120,6 +124,8 @@ export function requireTagged(t: Partial<Tagged>, where: string): Tagged {
 const ISSUED = new WeakSet<object>();
 const issue = (t: Tagged, where: string): Tagged => {
   requireTagged(t, where);
+  // WR-02: frozen, so a page cannot mutate an issued value and still pass requireIssued.
+  Object.freeze(t);
   ISSUED.add(t);
   return t;
 };

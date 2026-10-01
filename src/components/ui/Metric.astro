@@ -6,13 +6,13 @@ import type { Tagged } from '../../lib/data.ts';
 interface Props {
   tagged: Tagged;
   size?: 'xl' | 'm';
-  precision?: number;
 }
 
 // DATA-02: a number without a status, or any literal not issued by data.ts, throws here and fails the build.
 const t = requireIssued(Astro.props.tagged, 'Metric');
 const { size = 'xl' } = Astro.props;
-const precision = Astro.props.precision ?? t.precision ?? 0;
+// Precision comes from the dataset column (via data.ts), never from the caller.
+const precision = t.precision ?? 0;
 const countup = t.status === 'SIMULATED' || t.status === 'BUILT';
 // Repo file paths show as the file name; free-text sources (illustrative) show as given.
 const provenance = /^[\w./-]+\.\w+$/.test(t.source) ? t.source.split('/').pop() : t.source;
