@@ -20,7 +20,7 @@ test('requireTagged throws for each missing field', () => {
 });
 
 // ---- DATA-07 and DATA-02 (dist layer): output wording lint ----
-import { existsSync, mkdtempSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -69,6 +69,39 @@ test('lintHtml flags AI/ML in the same block as a BUILT or SIMULATED tag only', 
   assert.deepEqual(hits('<p>said <span data-status="BUILT">BUILT</span></p>'), []);
 });
 
+// CR-02: fixtures shaped like the real Metric / Figure / ResultTable output (claim text and tag in different blocks).
+const tag = (st) => '<span class="tag tag--x" data-status="' + st + '" data-astro-cid-a><svg aria-hidden="true"></svg>' + st + '</span>';
+const metric = (label, st) =>
+  '<div class="metric" data-status="' + st + '" data-claim><p class="metric__figure"><data value="1" data-status="' + st + '">1</data><span>m</span></p><p class="metric__label">' + label + '</p>' + tag(st) + '</div>';
+const figure = (cap, alt, st) =>
+  '<figure class="figure" data-claim><div class="plate"><picture><img alt="' + alt + '" src="a.webp"></picture></div><figcaption><p class="figure__title">' + cap + '</p><p class="figure__src">' + tag(st) + '<a href="#">x.png</a></p></figcaption></figure>';
+const table = (title, st) =>
+  '<div data-claim><table><caption><strong>' + title + '</strong><span>scenario</span></caption><tbody><tr><td><data value="1" data-status="' + st + '">1</data></td></tr></tbody></table><p class="rt__src">' + tag(st) + '</p></div>';
+
+test('CR-02: AI/ML wording flagged in real Metric, Figure and ResultTable shapes', () => {
+  assert.equal(hits(metric('AI detection accuracy', 'SIMULATED')).length, 1);
+  assert.equal(hits(metric('Mean error', 'BUILT').replace('Mean error', 'ML classifier score')).length, 1);
+  assert.equal(hits(figure('Machine learning classifier output', 'A plot', 'SIMULATED')).length, 1);
+  assert.equal(hits(figure('Range error', 'A neural network output plot', 'SIMULATED')).length, 1);
+  assert.equal(hits(table('Trained detector results', 'BUILT')).length, 1);
+});
+
+test('CR-02: the same shapes pass when wording is clean or the tag is DESIGNED', () => {
+  assert.deepEqual(hits(metric('Max range error', 'SIMULATED')), []);
+  assert.deepEqual(hits(figure('Range and velocity error', 'A bar chart', 'SIMULATED')), []);
+  assert.deepEqual(hits(table('CFAR five-target detection', 'BUILT')), []);
+  assert.deepEqual(hits('<div class="metric" data-status="DESIGNED" data-claim><p>AI detection</p>' + tag('DESIGNED') + '</div>'), []);
+});
+
+test('CR-02: a status tag with no data-claim wrapper is scoped to its nearest block, and quoting is irrelevant', () => {
+  assert.equal(hits('<div><p>AI detection accuracy</p><span data-status="BUILT">BUILT</span></div>').length, 1);
+  assert.equal(hits("<div><p>AI detection accuracy</p><span data-status='BUILT'>BUILT</span></div>").length, 1);
+  assert.equal(hits('<div><p>AI detection accuracy</p><span data-status=SIMULATED>SIMULATED</span></div>').length, 1);
+  assert.equal(hits('<p>AI <span data-status=\'BUILT\'>BUILT</span></p>').length, 1);
+  // claim scope does not leak to sibling claims
+  assert.deepEqual(hits(metric('AI sketch', 'DESIGNED') + metric('Max range error', 'SIMULATED')), []);
+});
+
 test('lintHtml flags a <data> number without data-status', () => {
   assert.equal(hits('<p><data value="1">1</data></p>').length, 1);
   assert.deepEqual(hits('<p><data value="1" data-status="SIMULATED">1</data></p>'), []);
@@ -78,6 +111,19 @@ test('scanDist on the real dist is clean', (t) => {
   const dist = fileURLToPath(new URL('../dist/', import.meta.url));
   if (!existsSync(dist)) return t.skip('dist/ absent: run npm run build first');
   assert.deepEqual(scanDist(dist), []);
+});
+
+test('CR-02: an AI label injected into the real built preview page is flagged', (t) => {
+  const f = fileURLToPath(new URL('../dist/preview/index.html', import.meta.url));
+  if (!existsSync(f)) return t.skip('dist/preview absent: run npm run build first');
+  const html = readFileSync(f, 'utf8');
+  assert.deepEqual(lintHtml(html, 'p'), []);
+  for (const needle of ['class="metric__label"', 'class="figure__title"', '<caption']) {
+    const i = html.indexOf(needle);
+    assert.ok(i > -1, needle);
+    const j = html.indexOf('>', i) + 1;
+    assert.ok(lintHtml(html.slice(0, j) + 'AI ' + html.slice(j), 'p').length >= 1, needle);
+  }
 });
 
 test('scanDist and lintOutput fail on a bad file, naming it', () => {

@@ -3,7 +3,43 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const BLOCK = /<\/?(?:p|li|tr|td|th|dd|dt|figcaption|caption|h[1-6]|div|section|article|header|footer|figure|ul|ol|table|summary|details)\b[^>]*>/gi;
+const BLOCK = new Set(['p', 'li', 'tr', 'td', 'th', 'dd', 'dt', 'figcaption', 'caption', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'section', 'article', 'header', 'footer', 'figure', 'ul', 'ol', 'table', 'summary', 'details']);
+const VOID = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr']);
+// A tag whose quoted attribute values may contain `>`.
+const TAG = /<(\/?)([a-z][\w:-]*)((?:[^>"']|"[^"]*"|'[^']*')*)>/gi;
+// Quote-agnostic: data-status="BUILT", data-status='BUILT' and data-status=BUILT.
+const STATUS_ATTR = /(?<![\w-])data-status\s*=\s*["']?(?:BUILT|SIMULATED)(?![\w-])/i;
+const CLAIM_ATTR = /(?<![\w-])data-claim(?![\w-])/;
+
+// CR-02: the text a status tag makes a claim about is scoped by container, not by inline run.
+// Components that put claim text and a tag in different blocks (Metric, Figure, ResultTable) wrap both in
+// an element with `data-claim`. Any other BUILT/SIMULATED tag is scoped to its nearest block ancestor.
+function claimScopes(body) {
+  const clean = body.replace(/<!--[\s\S]*?-->/g, ' ').replace(/<(script|style)\b[\s\S]*?<\/\1>/gi, ' ');
+  const scopes = new Set();
+  const stack = [];
+  const done = (el, end) => {
+    if (el.claim || el.scope) scopes.add(clean.slice(el.start, end));
+  };
+  for (const m of clean.matchAll(TAG)) {
+    const name = m[2].toLowerCase();
+    if (m[1]) {
+      const i = stack.findLastIndex((e) => e.name === name);
+      if (i === -1) continue;
+      for (const el of stack.splice(i).reverse()) done(el, m.index + m[0].length);
+      continue;
+    }
+    if (VOID.has(name) || m[3].trimEnd().endsWith('/')) continue;
+    const el = { name, start: m.index, claim: CLAIM_ATTR.test(m[3]), scope: false };
+    stack.push(el);
+    if (STATUS_ATTR.test(m[3]) && !stack.some((e) => e.claim)) {
+      const target = stack.findLast((e) => BLOCK.has(e.name)) ?? stack.at(-2) ?? el;
+      target.scope = true;
+    }
+  }
+  for (const el of stack) done(el, clean.length);
+  return [...scopes];
+}
 
 // User-visible text: script/style removed; tags stripped except alt/title/aria-label values and the meta description.
 const ATTR = /(?<![\w-])(?:alt|title|aria-label)\s*=\s*(?:"([^"]*)"|'([^']*)')/gi;
@@ -33,10 +69,9 @@ export function lintHtml(html, file = 'html') {
   for (const [re, name] of RULES) if (re.test(all)) hits.push(`${file}: banned wording ${name}`);
   const start = html.indexOf('<body');
   const body = html.slice(start === -1 ? 0 : start);
-  // ponytail: AI/ML scope is the inline run between block tags; claim-scoped checks arrive with Phase 3 claims.
-  for (const seg of body.split(BLOCK)) {
-    if (!/data-status="(?:BUILT|SIMULATED)"/.test(seg)) continue;
-    const t = text(seg);
+  for (const scope of claimScopes(body)) {
+    if (!STATUS_ATTR.test(scope)) continue;
+    const t = text(scope);
     if (AI_WORD.test(t) || AI_PHRASE.test(t)) hits.push(`${file}: AI/ML next to BUILT/SIMULATED: ${t.replace(/\s+/g, ' ').trim().slice(0, 80)}`);
   }
   for (const m of body.matchAll(/<data(?=[\s>])[^>]*>/gi)) if (!/data-status\s*=/.test(m[0])) hits.push(`${file}: number without status: ${m[0].slice(0, 60)}`);

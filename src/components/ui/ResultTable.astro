@@ -20,6 +20,7 @@ const rows = ds.rows.map((row, i) =>
 );
 ---
 
+<div data-claim>
 <table class="rt" role="table">
   <caption>
     <strong class="rt__title">{ds.title}</strong>
@@ -52,6 +53,7 @@ const rows = ds.rows.map((row, i) =>
   <StatusTag status={ds.status} provenance={fileName} />
   <a href={REPO.blob(ds.source.path)}>{ds.source.path}</a>
 </p>
+</div>
 
 <style>
   .rt {

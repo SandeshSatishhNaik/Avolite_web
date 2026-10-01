@@ -17,7 +17,7 @@ if (!entry) throw new Error(`Figure: unknown figure ${String(id)}`);
 const image = await loadImage(id);
 ---
 
-<figure class="figure">
+<figure class="figure" data-claim>
   <div class="plate">
     <Picture src={image} alt={entry.alt} formats={['avif', 'webp']} fallbackFormat="webp" widths={[640, 1280, 1920]} sizes="(min-width: 1440px) 1280px, 100vw" />
   </div>

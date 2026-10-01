@@ -18,7 +18,7 @@ const countup = t.status === 'SIMULATED' || t.status === 'BUILT';
 const provenance = /^[\w./-]+\.\w+$/.test(t.source) ? t.source.split('/').pop() : t.source;
 ---
 
-<div class={`metric metric--${t.status.toLowerCase()} metric--${size}`} data-status={t.status}>
+<div class={`metric metric--${t.status.toLowerCase()} metric--${size}`} data-status={t.status} data-claim>
   <p class="metric__figure">
     <data class="metric__value" value={String(t.value)} data-status={t.status} data-countup={countup ? '' : undefined}>{fmt(t.value, precision)}</data>
     {t.unit && <span class="metric__unit mono">{t.unit}</span>}
