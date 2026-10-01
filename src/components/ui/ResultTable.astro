@@ -24,10 +24,6 @@ const rows = ds.rows.map((row, i) =>
   <caption>
     <strong class="rt__title">{ds.title}</strong>
     <span class="rt__scenario">{ds.scenario}</span>
-    <span class="rt__src">
-      <StatusTag status={ds.status} provenance={fileName} />
-      <a href={REPO.blob(ds.source.path)}>{ds.source.path}</a>
-    </span>
   </caption>
   <thead role="rowgroup">
     <tr role="row">
@@ -52,6 +48,10 @@ const rows = ds.rows.map((row, i) =>
     }
   </tbody>
 </table>
+<p class="rt__src">
+  <StatusTag status={ds.status} provenance={fileName} />
+  <a href={REPO.blob(ds.source.path)}>{ds.source.path}</a>
+</p>
 
 <style>
   .rt {
@@ -70,6 +70,7 @@ const rows = ds.rows.map((row, i) =>
     color: var(--text-1);
   }
   .rt__src {
+    margin: var(--sp-3) 0 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
