@@ -3,7 +3,8 @@
 // Alt text names the plot type and axes and carries no numbers; numbers live in tagged tables.
 import type { ImageMetadata } from 'astro';
 
-// Lazy glob: only figures a page renders are loaded, so unused PNGs never ship (no .png in dist).
+// Lazy glob: only the figures a page renders are loaded at runtime. Vite still emits every PNG it can reach, so
+// pruneUnusedPng (scripts/honesty.mjs, run after build) removes the originals no built file references (no .png in dist).
 const IMAGES = import.meta.glob<{ default: ImageMetadata }>('../assets/repo/**/*.png');
 
 type Figure = { alt: string; title: string; status: 'SIMULATED'; path: string };

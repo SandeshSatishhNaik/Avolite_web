@@ -20,11 +20,11 @@ test('requireTagged throws for each missing field', () => {
 });
 
 // ---- DATA-07 and DATA-02 (dist layer): output wording lint ----
-import { existsSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { lintHtml, scanDist, lintOutput } from '../scripts/honesty.mjs';
+import { lintHtml, scanDist, lintOutput, pruneUnusedPng } from '../scripts/honesty.mjs';
 
 const page = (body, head = '') => `<!doctype html><html><head>${head}</head><body>${body}</body></html>`;
 const hits = (body, head) => lintHtml(page(body, head), 'f.html');
@@ -136,4 +136,21 @@ test('scanDist and lintOutput fail on a bad file, naming it', () => {
   const good = mkdtempSync(join(tmpdir(), 'avl-dist-'));
   writeFileSync(join(good, 'ok.html'), page('<p>Fine</p>'));
   assert.doesNotThrow(() => lintOutput(good));
+});
+
+test('WR-05: pruneUnusedPng keeps PNGs referenced by any text file, drops the rest, honours the assets dir', () => {
+  for (const assets of ['_astro', 'assets']) {
+    const dir = mkdtempSync(join(tmpdir(), 'avl-prune-'));
+    mkdirSync(join(dir, assets));
+    mkdirSync(join(dir, 'sub'));
+    for (const n of ['a', 'b', 'c', 'd', 'e']) writeFileSync(join(dir, assets, n + '.abc123.png'), 'x');
+    writeFileSync(join(dir, 'index.html'), '<img src="/' + assets + '/a.abc123.png">');
+    writeFileSync(join(dir, 'sub', 'site.webmanifest'), '{"icons":[{"src":"/' + assets + '/b.abc123.png"}]}');
+    writeFileSync(join(dir, 'icon.svg'), '<svg><image href="/' + assets + '/c.abc123.png"/></svg>');
+    writeFileSync(join(dir, 'search.json'), '["/' + assets + '/d.abc123.png"]');
+    pruneUnusedPng(dir, assets);
+    const left = readdirSync(join(dir, assets)).sort();
+    assert.deepEqual(left, ['a.abc123.png', 'b.abc123.png', 'c.abc123.png', 'd.abc123.png']);
+  }
+  pruneUnusedPng(mkdtempSync(join(tmpdir(), 'avl-prune-')), 'missing');
 });

@@ -1,5 +1,5 @@
 // Output-wording lint over built HTML (DATA-07, DATA-02 second layer). Pure functions so tests can feed fixtures.
-import { readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, rmSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -95,4 +95,22 @@ export function scanDist(dir) {
 export function lintOutput(dir) {
   const hits = scanDist(dir);
   if (hits.length) throw new Error(`Honesty lint failed (${hits.length}):\n` + hits.map((h) => '  ' + h).join('\n'));
+}
+
+// IMG-03: Vite emits every PNG the image registry can reach, but Astro deletes an original only after optimising it,
+// so originals no page renders would stay in dist. Drop PNGs in the assets dir that no built text file references.
+// Every file except binary media (images, fonts, video) counts as a reference: html, css, js, json, xml, svg, webmanifest, txt.
+const BINARY = /\.(?:png|jpe?g|gif|webp|avif|ico|woff2?|ttf|otf|eot|mp4|webm)$/i;
+export function pruneUnusedPng(distDir, assetsDir = '_astro') {
+  const assets = join(distDir, assetsDir);
+  if (!existsSync(assets)) return;
+  const pending = new Set(readdirSync(assets).filter((f) => f.toLowerCase().endsWith('.png')));
+  for (const f of readdirSync(distDir, { recursive: true })) {
+    if (!pending.size) break;
+    const p = join(distDir, String(f));
+    if (BINARY.test(p) || !statSync(p).isFile()) continue;
+    const txt = readFileSync(p, 'utf8');
+    for (const png of pending) if (txt.includes(png)) pending.delete(png);
+  }
+  for (const png of pending) rmSync(join(assets, png));
 }
