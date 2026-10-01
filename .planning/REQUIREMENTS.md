@@ -27,13 +27,13 @@ Sources: `.planning/PROJECT.md`, `.planning/research/` (FEATURES, DESIGN, ARCHIT
 
 ### UI primitives (UI)
 
-- [ ] **UI-01**: Status tag component with six tiers (BUILT, SIMULATED, PROTOTYPE, DESIGNED, PLANNED, ILLUSTRATIVE), each with its own color, glyph and border style, never color alone, plus an optional provenance suffix
-- [ ] **UI-02**: Status legend shown in section 01 and in the footer
-- [ ] **UI-03**: Section header with numbered eyebrow ("01 · THE PROBLEM"), heading and lede
-- [ ] **UI-04**: Metric readout with tabular numbers, unit and status tag; ILLUSTRATIVE metrics use a distinct style and never count up
-- [ ] **UI-05**: Figure plate that shows MATLAB exports unrecolored on a light plate with caption, status and source path
-- [ ] **UI-06**: Placeholder panel with fixed aspect ratio that names the pending asset and its status, so the real asset swaps in without layout change
-- [ ] **UI-07**: Result table that stacks into cards under 768 px, and every chart offers a "View as table" disclosure
+- [x] **UI-01**: Status tag component with six tiers (BUILT, SIMULATED, PROTOTYPE, DESIGNED, PLANNED, ILLUSTRATIVE), each with its own color, glyph and border style, never color alone, plus an optional provenance suffix
+- [x] **UI-02**: Status legend shown in section 01 and in the footer
+- [x] **UI-03**: Section header with numbered eyebrow ("01 · THE PROBLEM"), heading and lede
+- [x] **UI-04**: Metric readout with tabular numbers, unit and status tag; ILLUSTRATIVE metrics use a distinct style and never count up
+- [x] **UI-05**: Figure plate that shows MATLAB exports unrecolored on a light plate with caption, status and source path
+- [x] **UI-06**: Placeholder panel with fixed aspect ratio that names the pending asset and its status, so the real asset swaps in without layout change
+- [x] **UI-07**: Result table that stacks into cards under 768 px, and every chart offers a "View as table" disclosure
 
 ### Header, hero and footer (SHELL)
 
@@ -115,7 +115,7 @@ Sources: `.planning/PROJECT.md`, `.planning/research/` (FEATURES, DESIGN, ARCHIT
 
 - [ ] **IMG-01**: Data, diagrams and results use SVG/code or real MATLAB exports only
 - [ ] **IMG-02**: AI-generated mood scenes (sections 01, 07, 08 only) carry the caption "AI-generated · mood only, not AVOLITE hardware"
-- [ ] **IMG-03**: Raster images ship as AVIF/WebP with explicit width and height
+- [x] **IMG-03**: Raster images ship as AVIF/WebP with explicit width and height
 
 ### Quality and launch (QA)
 
@@ -178,13 +178,13 @@ Deferred. Tracked but not in the current roadmap.
 | DATA-05 | Phase 2 | Complete |
 | DATA-06 | Phase 2 | Complete |
 | DATA-07 | Phase 2 | Complete |
-| UI-01 | Phase 2 | Pending |
-| UI-02 | Phase 2 | Pending |
-| UI-03 | Phase 2 | Pending |
-| UI-04 | Phase 2 | Pending |
-| UI-05 | Phase 2 | Pending |
-| UI-06 | Phase 2 | Pending |
-| UI-07 | Phase 2 | Pending |
+| UI-01 | Phase 2 | Complete |
+| UI-02 | Phase 2 | Complete |
+| UI-03 | Phase 2 | Complete |
+| UI-04 | Phase 2 | Complete |
+| UI-05 | Phase 2 | Complete |
+| UI-06 | Phase 2 | Complete |
+| UI-07 | Phase 2 | Complete |
 | SHELL-01 | Phase 1 | Complete |
 | SHELL-02 | Phase 1 | Complete |
 | SHELL-03 | Phase 1 | Complete |
@@ -233,7 +233,7 @@ Deferred. Tracked but not in the current roadmap.
 | MOT-05 | Phase 4 | Pending |
 | IMG-01 | Phase 3 | Pending |
 | IMG-02 | Phase 5 | Pending |
-| IMG-03 | Phase 2 | Pending |
+| IMG-03 | Phase 2 | Complete |
 | QA-01 | Phase 6 | Pending |
 | QA-02 | Phase 6 | Pending |
 | QA-03 | Phase 6 | Pending |

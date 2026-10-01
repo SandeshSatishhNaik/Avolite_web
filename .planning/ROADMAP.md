@@ -11,7 +11,7 @@ Breadth-first build of a static, honesty-first single-page site for AVOLITE (SIH
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
 - [x] **Phase 1: Shell and stack** - Astro 7 static scaffold, tokens, fonts, cleaned logo, header/nav/mobile menu and 8 anchored section stubs (completed 2026-09-30)
-- [ ] **Phase 2: Data and honesty system** - CSV ingest, zod honesty rules, build checks and the UI primitives every number and tag must pass through
+- [x] **Phase 2: Data and honesty system** - CSV ingest, zod honesty rules, build checks and the UI primitives every number and tag must pass through (completed 2026-10-01)
 - [ ] **Phase 3: All sections, static (ship point)** - Hero, sections 01-08 and footer with final copy, real results or honest placeholders, complete with JS off
 - [ ] **Phase 4: Interactives and motion** - Widgets and explainers first, then progressive-enhancement motion (first to be cut)
 - [ ] **Phase 5: Asset swap-in** - Labelled AI mood images and any team assets that arrive before the cutoff, swapped into fixed boxes
@@ -47,7 +47,7 @@ Breadth-first build of a static, honesty-first single-page site for AVOLITE (SIH
   5. Raster images are served as AVIF/WebP with explicit width and height
 **Plans**: 2 plans
 - [x] 02-01-PLAN.md — Pinned CSV ingest, results.json, data.ts zod honesty rules and derived values, requireTagged, dist wording lint wired into astro build, node fixture tests (wave 1)
-- [ ] 02-02-PLAN.md — StatusTag/legend/SectionHeader/Metric/Figure/Placeholder/ResultTable/TableDisclosure, PNG intake as AVIF/WebP, unlinked noindex /preview/, dist and Playwright/axe tests (wave 2, runs after 01; same working tree)
+- [x] 02-02-PLAN.md — StatusTag/legend/SectionHeader/Metric/Figure/Placeholder/ResultTable/TableDisclosure, PNG intake as AVIF/WebP, unlinked noindex /preview/, dist and Playwright/axe tests (wave 2, runs after 01; same working tree)
 **UI hint**: yes
 
 ### Phase 3: All sections, static (ship point)
@@ -107,7 +107,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6. Phase 3 is the
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Shell and stack | 3/3 | Complete    | 2026-09-30 |
-| 2. Data and honesty system | 1/2 | In Progress|  |
+| 2. Data and honesty system | 2/2 | Complete   | 2026-10-01 |
 | 3. All sections, static (ship point) | 0/TBD | Not started | - |
 | 4. Interactives and motion | 0/TBD | Not started | - |
 | 5. Asset swap-in | 0/TBD | Not started | - |
