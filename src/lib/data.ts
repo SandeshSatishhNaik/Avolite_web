@@ -46,13 +46,25 @@ const PAIRS = [
   ['ExpectedVelocity_mps', 'DetectedVelocity_mps', 'VelocityError_mps'],
 ] as const;
 
-const Root = z
+// CR-01: results.json (machine-ingested, pinned) and claims.json (hand-written) get separate strict schemas.
+// A key in the wrong file fails parsing, so claims can never define or override `datasets` or `repo`.
+const Results = z
   .object({
-    repo: z.object({ slug: z.string(), commit: z.string() }),
+    repo: z.object({ slug: z.string(), commit: z.string() }).strict(),
     datasets: z.array(Dataset).min(1),
-    definitions: z.object({ snr: z.string().nullable() }),
+  })
+  .strict();
+const Claims = z
+  .object({
+    definitions: z.object({ snr: z.string().nullable() }).strict(),
     illustrative: z.array(Illustrative),
   })
+  .strict();
+
+// Cross-field rules over the two parsed halves (disjoint keys, so the merge cannot override anything).
+const Root = z
+  .object({ ...Results.shape, ...Claims.shape })
+  .strict()
   .superRefine((d, ctx) => {
     const bad = (message: string) => ctx.addIssue({ code: 'custom', message });
     const ids = new Set<string>();
@@ -74,12 +86,12 @@ const Root = z
     }
   });
 
-export function validate(raw: unknown) {
-  return Root.parse(raw);
+export function validate(rawResults: unknown, rawClaims: unknown) {
+  return Root.parse({ ...Results.parse(rawResults), ...Claims.parse(rawClaims) });
 }
 
 // Module load throws on any rule violation, which fails `astro build` for any page that imports this.
-export const data = validate({ ...results, ...claims });
+export const data = validate(results, claims);
 
 export type Dataset = (typeof data)['datasets'][number];
 type Column = Dataset['columns'][number];

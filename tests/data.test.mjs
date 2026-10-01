@@ -98,19 +98,32 @@ import claims from '../data/claims.json' with { type: 'json' };
 import { validate, derive, metric, illustrative, cell, chartRows, assertChartable, fmt, columnLabel, requireTagged, requireIssued, dataset } from '../src/lib/data.ts';
 
 const fresh = () => structuredClone({ ...results, ...claims });
+// Split a merged fixture back into the two files validate() takes.
+const val = (m) => validate({ repo: m.repo, datasets: m.datasets }, { definitions: m.definitions, illustrative: m.illustrative });
 const close = (a, b) => assert.ok(Math.abs(a - b) < 1e-9, `${a} != ${b}`);
 
 test('validate accepts the real inputs', () => {
-  assert.doesNotThrow(() => validate(fresh()));
+  assert.doesNotThrow(() => val(fresh()));
+});
+
+test('CR-01: claims.json cannot define or override datasets or repo; unknown keys fail', () => {
+  const fakeDs = structuredClone(results.datasets);
+  fakeDs[0].rows = fakeDs[0].rows.map((r) => ({ ...r, DetectedRange_m: r.ExpectedRange_m, RangeError_m: 0 }));
+  assert.throws(() => validate(results, { ...claims, datasets: fakeDs }));
+  assert.throws(() => validate(results, { ...claims, repo: results.repo }));
+  assert.throws(() => validate({ ...results, illustrative: [] }, claims));
+  assert.throws(() => validate({ ...results, definitions: { snr: null } }, claims));
+  assert.throws(() => validate(results, { ...claims, extra: 1 }));
+  assert.throws(() => validate({ ...results, extra: 1 }, claims));
 });
 
 test('DATA-03: tier rules', () => {
   const a = fresh();
   a.datasets[0].status = 'ILLUSTRATIVE';
-  assert.throws(() => validate(a));
+  assert.throws(() => val(a));
   const b = fresh();
   b.illustrative[0].status = 'SIMULATED';
-  assert.throws(() => validate(b));
+  assert.throws(() => val(b));
 });
 
 test('DATA-04: derived values are computed and cannot be typed or tampered', () => {
@@ -123,45 +136,45 @@ test('DATA-04: derived values are computed and cannot be typed or tampered', () 
   close(d.meanAbsVelocityError, 0.0995941558441563);
   const a = fresh();
   a.datasets[0].maxRangeError = 0.5;
-  assert.throws(() => validate(a));
+  assert.throws(() => val(a));
   const b = fresh();
   b.datasets[0].rows[0].RangeError_m = 0.9;
-  assert.throws(() => validate(b), /RangeError_m/);
+  assert.throws(() => val(b), /RangeError_m/);
 });
 
 test('DATA-05: no merging, single source, scenario required', () => {
   const a = fresh();
   a.datasets[0].source = [a.datasets[0].source, a.datasets[0].source];
-  assert.throws(() => validate(a));
+  assert.throws(() => val(a));
   const b = fresh();
   b.datasets.push(structuredClone(b.datasets[0]));
-  assert.throws(() => validate(b), /duplicate/);
+  assert.throws(() => val(b), /duplicate/);
   const c = fresh();
   const second = structuredClone(c.datasets[0]);
   second.id = 'other';
   c.datasets.push(second);
-  assert.throws(() => validate(c), /duplicate/);
+  assert.throws(() => val(c), /duplicate/);
   const d = fresh();
   d.datasets[0].scenario = '';
-  assert.throws(() => validate(d));
+  assert.throws(() => val(d));
 });
 
 test('DATA-06: identical rows and SNR sweep', () => {
   const a = fresh();
   const row = a.datasets[0].rows[0];
   a.datasets[0].rows = [row, { ...row }, { ...row }];
-  assert.throws(() => validate(a), /identical/);
+  assert.throws(() => val(a), /identical/);
   a.datasets[0].note = 'All 3 rows are identical';
-  assert.doesNotThrow(() => validate(a));
+  assert.doesNotThrow(() => val(a));
   // a noted identical-row dataset cannot be charted
   assert.throws(() => assertChartable(a.datasets[0]), /identical|distribution/);
   assert.equal(chartRows('cfar-a').length, 5);
 
   const s = fresh();
   s.datasets[0].source.path = '04_MATLAB/DSP/SNR_Sweep/x.csv';
-  assert.throws(() => validate(s), /SNR/);
+  assert.throws(() => val(s), /SNR/);
   s.definitions.snr = 'SNR is defined as ...';
-  assert.doesNotThrow(() => validate(s));
+  assert.doesNotThrow(() => val(s));
 });
 
 test('metric() returns fully tagged values', () => {
