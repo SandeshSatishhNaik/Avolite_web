@@ -187,6 +187,34 @@ test('DATA-06: identical rows and SNR sweep', () => {
   assert.doesNotThrow(() => val(s));
 });
 
+test('WR-04: pin material, SNR definition and commit consistency', () => {
+  const a = fresh();
+  a.datasets[0].source.sha256 = 'z'.repeat(64);
+  assert.throws(() => val(a));
+  const a2 = fresh();
+  a2.datasets[0].source.sha256 = a2.datasets[0].source.sha256.toUpperCase();
+  assert.throws(() => val(a2));
+  const b = fresh();
+  b.datasets[0].source.commit = 'z'.repeat(40);
+  b.repo.commit = 'z'.repeat(40);
+  assert.throws(() => val(b));
+  const c = fresh();
+  c.datasets[0].source.commit = 'a'.repeat(40);
+  assert.throws(() => val(c), /commit/);
+  const d = fresh();
+  d.datasets[0].source.path = 'x/snr-sweep/y.csv';
+  assert.throws(() => val(d), /SNR/);
+  d.definitions.snr = '';
+  assert.throws(() => val(d));
+  d.definitions.snr = 'too short';
+  assert.throws(() => val(d));
+  d.definitions.snr = 'Ratio of signal power to noise power in dB';
+  assert.doesNotThrow(() => val(d));
+  const e = fresh();
+  e.datasets[0].source.path = 'x/Snr_Sweep.csv';
+  assert.throws(() => val(e), /SNR/);
+});
+
 test('metric() returns fully tagged values', () => {
   const m = metric('cfar-a', 'maxAbsRangeError');
   assert.equal(m.value, derive('cfar-a').maxAbsRangeError);

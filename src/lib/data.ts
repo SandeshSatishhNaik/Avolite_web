@@ -7,7 +7,7 @@ import results from '../data/results.json' with { type: 'json' };
 import claims from '../../data/claims.json' with { type: 'json' };
 
 const Source = z
-  .object({ repo: z.string(), commit: z.string().length(40), path: z.string(), sha256: z.string().length(64) })
+  .object({ repo: z.string(), commit: z.string().regex(/^[0-9a-f]{40}$/), path: z.string(), sha256: z.string().regex(/^[0-9a-f]{64}$/) })
   .strict();
 
 // DATA-03: repo data is SIMULATED or BUILT, never ILLUSTRATIVE. DATA-05: one source object (an array fails).
@@ -50,13 +50,13 @@ const PAIRS = [
 // A key in the wrong file fails parsing, so claims can never define or override `datasets` or `repo`.
 const Results = z
   .object({
-    repo: z.object({ slug: z.string(), commit: z.string() }).strict(),
+    repo: z.object({ slug: z.string(), commit: z.string().regex(/^[0-9a-f]{40}$/) }).strict(),
     datasets: z.array(Dataset).min(1),
   })
   .strict();
 const Claims = z
   .object({
-    definitions: z.object({ snr: z.string().nullable() }).strict(),
+    definitions: z.object({ snr: z.string().refine((v) => v.trim().length >= 10, 'definitions.snr must be a real definition (10+ characters) or null').nullable() }).strict(),
     illustrative: z.array(Illustrative),
   })
   .strict();
@@ -71,6 +71,7 @@ const Root = z
     const paths = new Set<string>();
     for (const ds of d.datasets) {
       if (ids.has(ds.id) || paths.has(ds.source.path)) bad(`duplicate or merged dataset ${ds.id} (DATA-05)`);
+      if (ds.source.commit !== d.repo.commit) bad(`${ds.id}: source commit != repo commit`);
       ids.add(ds.id);
       paths.add(ds.source.path);
       // DATA-04: error must equal detected minus expected (verified on the CSV, residual under 5e-14).
@@ -82,7 +83,7 @@ const Root = z
           if (ev != null && dv != null && rv != null && Math.abs(dv - ev - rv) > 1e-9) bad(`${ds.id}: ${err} != ${det} - ${e} (DATA-04)`);
         }
       if (allIdentical(ds.rows) && !ds.note) bad(`${ds.id}: identical rows need a note (DATA-06)`);
-      if (/\/SNR_Sweep\//i.test(ds.source.path) && d.definitions.snr === null) bad(`${ds.id}: SNR sweep needs definitions.snr (DATA-06)`);
+      if (/snr/i.test(ds.source.path) && d.definitions.snr === null) bad(`${ds.id}: SNR sweep needs definitions.snr (DATA-06)`);
     }
   });
 
