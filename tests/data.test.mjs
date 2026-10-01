@@ -95,7 +95,7 @@ test('STATUS vocabulary: six tiers in order, distinct glyphs, dashed only for PL
 // ---- Task 2: schema, honesty rules, derived values (DATA-02..06) ----
 import results from '../src/data/results.json' with { type: 'json' };
 import claims from '../data/claims.json' with { type: 'json' };
-import { validate, derive, metric, illustrative, cell, chartRows, assertChartable, fmt, columnLabel, requireTagged, requireIssued, dataset } from '../src/lib/data.ts';
+import { validate, derive, metric, illustrative, cell, chartRows, assertChartable, fmt, columnLabel, requireTagged, requireIssued, dataset, deriveFrom } from '../src/lib/data.ts';
 
 const fresh = () => structuredClone({ ...results, ...claims });
 // Split a merged fixture back into the two files validate() takes.
@@ -140,6 +140,16 @@ test('DATA-04: derived values are computed and cannot be typed or tampered', () 
   const b = fresh();
   b.datasets[0].rows[0].RangeError_m = 0.9;
   assert.throws(() => val(b), /RangeError_m/);
+});
+
+test('WR-01: derive rejects null cells instead of counting them as zero', () => {
+  const ds = structuredClone(dataset('cfar-a'));
+  assert.doesNotThrow(() => deriveFrom(ds));
+  for (const k of ['RangeError_m', 'DetectedRange_m', 'VelocityError_mps', 'DetectedVelocity_mps']) {
+    const bad = structuredClone(ds);
+    bad.rows[2][k] = null;
+    assert.throws(() => deriveFrom(bad), new RegExp(`row 2 has no ${k}`));
+  }
 });
 
 test('DATA-05: no merging, single source, scenario required', () => {

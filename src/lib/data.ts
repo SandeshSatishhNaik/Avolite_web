@@ -131,27 +131,35 @@ export function requireIssued(t: Tagged | undefined, where: string): Tagged {
 }
 
 // ---- DATA-04: derived values are computed, never typed ----
+const REQUIRED = ['DetectedRange_m', 'DetectedVelocity_mps', 'RangeError_m', 'VelocityError_mps'];
 const stats = (xs: number[]) => ({ max: Math.max(...xs), mean: xs.reduce((a, b) => a + b, 0) / xs.length });
 
-export function derive(id: string) {
-  const ds = dataset(id);
+// WR-01: a null cell is a missing value, never a zero. Any null in the four columns the stats read throws.
+export function deriveFrom(ds: Pick<Dataset, 'id' | 'columns' | 'rows'>) {
   const keys = new Set(ds.columns.map((c) => c.key));
-  for (const k of ['DetectedRange_m', 'DetectedVelocity_mps', 'RangeError_m', 'VelocityError_mps'])
-    if (!keys.has(k)) throw new Error(`${id}: column ${k} missing, cannot derive`);
-  const num = (r: Row, k: string) => r[k] as number;
-  const rows = ds.rows;
-  const detectedRows = rows.filter((r) => Number.isFinite(r.DetectedRange_m) && Number.isFinite(r.DetectedVelocity_mps));
-  const range = stats(rows.map((r) => Math.abs(num(r, 'RangeError_m'))));
-  const vel = stats(rows.map((r) => Math.abs(num(r, 'VelocityError_mps'))));
+  for (const k of REQUIRED)
+    if (!keys.has(k)) throw new Error(`${ds.id}: column ${k} missing, cannot derive`);
+  const col = (k: string) =>
+    ds.rows.map((r, i) => {
+      const v = r[k];
+      if (typeof v !== 'number' || !Number.isFinite(v)) throw new Error(`${ds.id}: row ${i} has no ${k}, cannot derive`);
+      return v;
+    });
+  col('DetectedRange_m');
+  col('DetectedVelocity_mps');
+  const range = stats(col('RangeError_m').map(Math.abs));
+  const vel = stats(col('VelocityError_mps').map(Math.abs));
   return {
     maxAbsRangeError: range.max,
     meanAbsRangeError: range.mean,
     maxAbsVelocityError: vel.max,
     meanAbsVelocityError: vel.mean,
-    detected: detectedRows.length,
-    total: rows.length,
+    detected: ds.rows.length,
+    total: ds.rows.length,
   };
 }
+
+export const derive = (id: string) => deriveFrom(dataset(id));
 
 type DerivedKey = keyof ReturnType<typeof derive>;
 const METRICS: Record<DerivedKey, { label: string; col: string | null }> = {
