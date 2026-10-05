@@ -23,7 +23,7 @@ test('axe 390', async ({ page }) => {
 test('axe 390 menu open', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 800 });
   await page.goto('/');
-  await page.locator('[data-menu-open]').click();
-  await expect(page.locator('dialog#menu')).toBeVisible();
+  await page.locator('#menu > summary').click();
+  await expect(page.locator('#menu')).toHaveAttribute('open', '');
   await scan(page);
 });

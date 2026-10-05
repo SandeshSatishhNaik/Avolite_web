@@ -1,0 +1,1105 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-05T12:31:23.785Z",
+  "title": "Design System: AVOLITE",
+  "extensions": {
+    "colorMeta": {
+      "bg-0": {
+        "role": "neutral",
+        "displayName": "bg 0",
+        "tonalRamp": [
+          "oklch(0.1500 0.0069 304.24)",
+          "oklch(0.2643 0.0069 304.24)",
+          "oklch(0.3786 0.0069 304.24)",
+          "oklch(0.4929 0.0069 304.24)",
+          "oklch(0.6071 0.0069 304.24)",
+          "oklch(0.7214 0.0069 304.24)",
+          "oklch(0.8357 0.0069 304.24)",
+          "oklch(0.9500 0.0069 304.24)"
+        ]
+      },
+      "bg-1": {
+        "role": "neutral",
+        "displayName": "bg 1",
+        "tonalRamp": [
+          "oklch(0.1500 0.0000 89.88)",
+          "oklch(0.2643 0.0000 89.88)",
+          "oklch(0.3786 0.0000 89.88)",
+          "oklch(0.4929 0.0000 89.88)",
+          "oklch(0.6071 0.0000 89.88)",
+          "oklch(0.7214 0.0000 89.88)",
+          "oklch(0.8357 0.0000 89.88)",
+          "oklch(0.9500 0.0000 89.88)"
+        ]
+      },
+      "bg-2": {
+        "role": "neutral",
+        "displayName": "bg 2",
+        "tonalRamp": [
+          "oklch(0.1500 0.0128 306.02)",
+          "oklch(0.2643 0.0128 306.02)",
+          "oklch(0.3786 0.0128 306.02)",
+          "oklch(0.4929 0.0128 306.02)",
+          "oklch(0.6071 0.0128 306.02)",
+          "oklch(0.7214 0.0128 306.02)",
+          "oklch(0.8357 0.0128 306.02)",
+          "oklch(0.9500 0.0128 306.02)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "line",
+        "tonalRamp": [
+          "oklch(0.1500 0.0244 304.44)",
+          "oklch(0.2643 0.0244 304.44)",
+          "oklch(0.3786 0.0244 304.44)",
+          "oklch(0.4929 0.0244 304.44)",
+          "oklch(0.6071 0.0244 304.44)",
+          "oklch(0.7214 0.0244 304.44)",
+          "oklch(0.8357 0.0244 304.44)",
+          "oklch(0.9500 0.0244 304.44)"
+        ]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "line strong",
+        "tonalRamp": [
+          "oklch(0.1500 0.0430 305.24)",
+          "oklch(0.2643 0.0430 305.24)",
+          "oklch(0.3786 0.0430 305.24)",
+          "oklch(0.4929 0.0430 305.24)",
+          "oklch(0.6071 0.0430 305.24)",
+          "oklch(0.7214 0.0430 305.24)",
+          "oklch(0.8357 0.0430 305.24)",
+          "oklch(0.9500 0.0430 305.24)"
+        ]
+      },
+      "text-1": {
+        "role": "neutral",
+        "displayName": "text 1",
+        "tonalRamp": [
+          "oklch(0.1500 0.0300 295.81)",
+          "oklch(0.2643 0.0300 295.81)",
+          "oklch(0.3786 0.0300 295.81)",
+          "oklch(0.4929 0.0300 295.81)",
+          "oklch(0.6071 0.0300 295.81)",
+          "oklch(0.7214 0.0300 295.81)",
+          "oklch(0.8357 0.0300 295.81)",
+          "oklch(0.9500 0.0300 295.81)"
+        ]
+      },
+      "text-2": {
+        "role": "neutral",
+        "displayName": "text 2",
+        "tonalRamp": [
+          "oklch(0.1500 0.0370 301.49)",
+          "oklch(0.2643 0.0370 301.49)",
+          "oklch(0.3786 0.0370 301.49)",
+          "oklch(0.4929 0.0370 301.49)",
+          "oklch(0.6071 0.0370 301.49)",
+          "oklch(0.7214 0.0370 301.49)",
+          "oklch(0.8357 0.0370 301.49)",
+          "oklch(0.9500 0.0370 301.49)"
+        ]
+      },
+      "text-3": {
+        "role": "neutral",
+        "displayName": "text 3",
+        "tonalRamp": [
+          "oklch(0.1500 0.0396 303.92)",
+          "oklch(0.2643 0.0396 303.92)",
+          "oklch(0.3786 0.0396 303.92)",
+          "oklch(0.4929 0.0396 303.92)",
+          "oklch(0.6071 0.0396 303.92)",
+          "oklch(0.7214 0.0396 303.92)",
+          "oklch(0.8357 0.0396 303.92)",
+          "oklch(0.9500 0.0396 303.92)"
+        ]
+      },
+      "signal": {
+        "role": "primary",
+        "displayName": "signal",
+        "tonalRamp": [
+          "oklch(0.1500 0.0963 264.84)",
+          "oklch(0.2643 0.0963 264.84)",
+          "oklch(0.3786 0.0963 264.84)",
+          "oklch(0.4929 0.0963 264.84)",
+          "oklch(0.6071 0.0963 264.84)",
+          "oklch(0.7214 0.0963 264.84)",
+          "oklch(0.8357 0.0963 264.84)",
+          "oklch(0.9500 0.0963 264.84)"
+        ]
+      },
+      "signal-dim": {
+        "role": "primary",
+        "displayName": "signal dim",
+        "tonalRamp": [
+          "oklch(0.1500 0.0818 264.58)",
+          "oklch(0.2643 0.0818 264.58)",
+          "oklch(0.3786 0.0818 264.58)",
+          "oklch(0.4929 0.0818 264.58)",
+          "oklch(0.6071 0.0818 264.58)",
+          "oklch(0.7214 0.0818 264.58)",
+          "oklch(0.8357 0.0818 264.58)",
+          "oklch(0.9500 0.0818 264.58)"
+        ]
+      },
+      "khaki": {
+        "role": "secondary",
+        "displayName": "khaki",
+        "tonalRamp": [
+          "oklch(0.1500 0.0730 81.71)",
+          "oklch(0.2643 0.0730 81.71)",
+          "oklch(0.3786 0.0730 81.71)",
+          "oklch(0.4929 0.0730 81.71)",
+          "oklch(0.6071 0.0730 81.71)",
+          "oklch(0.7214 0.0730 81.71)",
+          "oklch(0.8357 0.0730 81.71)",
+          "oklch(0.9500 0.0730 81.71)"
+        ]
+      },
+      "action-ink": {
+        "role": "neutral",
+        "displayName": "action ink",
+        "tonalRamp": [
+          "oklch(0.1500 0.0000 89.88)",
+          "oklch(0.2643 0.0000 89.88)",
+          "oklch(0.3786 0.0000 89.88)",
+          "oklch(0.4929 0.0000 89.88)",
+          "oklch(0.6071 0.0000 89.88)",
+          "oklch(0.7214 0.0000 89.88)",
+          "oklch(0.8357 0.0000 89.88)",
+          "oklch(0.9500 0.0000 89.88)"
+        ]
+      },
+      "st-built": {
+        "role": "tertiary",
+        "displayName": "st built",
+        "tonalRamp": [
+          "oklch(0.1500 0.0922 159.36)",
+          "oklch(0.2643 0.0922 159.36)",
+          "oklch(0.3786 0.0922 159.36)",
+          "oklch(0.4929 0.0922 159.36)",
+          "oklch(0.6071 0.0922 159.36)",
+          "oklch(0.7214 0.0922 159.36)",
+          "oklch(0.8357 0.0922 159.36)",
+          "oklch(0.9500 0.0922 159.36)"
+        ]
+      },
+      "st-simulated": {
+        "role": "tertiary",
+        "displayName": "st simulated",
+        "tonalRamp": [
+          "oklch(0.1500 0.1093 255.80)",
+          "oklch(0.2643 0.1093 255.80)",
+          "oklch(0.3786 0.1093 255.80)",
+          "oklch(0.4929 0.1093 255.80)",
+          "oklch(0.6071 0.1093 255.80)",
+          "oklch(0.7214 0.1093 255.80)",
+          "oklch(0.8357 0.1093 255.80)",
+          "oklch(0.9500 0.1093 255.80)"
+        ]
+      },
+      "st-prototype": {
+        "role": "tertiary",
+        "displayName": "st prototype",
+        "tonalRamp": [
+          "oklch(0.1500 0.0918 73.06)",
+          "oklch(0.2643 0.0918 73.06)",
+          "oklch(0.3786 0.0918 73.06)",
+          "oklch(0.4929 0.0918 73.06)",
+          "oklch(0.6071 0.0918 73.06)",
+          "oklch(0.7214 0.0918 73.06)",
+          "oklch(0.8357 0.0918 73.06)",
+          "oklch(0.9500 0.0918 73.06)"
+        ]
+      },
+      "st-designed": {
+        "role": "tertiary",
+        "displayName": "st designed",
+        "tonalRamp": [
+          "oklch(0.1500 0.1340 301.04)",
+          "oklch(0.2643 0.1340 301.04)",
+          "oklch(0.3786 0.1340 301.04)",
+          "oklch(0.4929 0.1340 301.04)",
+          "oklch(0.6071 0.1340 301.04)",
+          "oklch(0.7214 0.1340 301.04)",
+          "oklch(0.8357 0.1340 301.04)",
+          "oklch(0.9500 0.1340 301.04)"
+        ]
+      },
+      "st-planned": {
+        "role": "tertiary",
+        "displayName": "st planned",
+        "tonalRamp": [
+          "oklch(0.1500 0.0436 304.01)",
+          "oklch(0.2643 0.0436 304.01)",
+          "oklch(0.3786 0.0436 304.01)",
+          "oklch(0.4929 0.0436 304.01)",
+          "oklch(0.6071 0.0436 304.01)",
+          "oklch(0.7214 0.0436 304.01)",
+          "oklch(0.8357 0.0436 304.01)",
+          "oklch(0.9500 0.0436 304.01)"
+        ]
+      },
+      "st-illustrative": {
+        "role": "tertiary",
+        "displayName": "st illustrative",
+        "tonalRamp": [
+          "oklch(0.1500 0.0730 81.71)",
+          "oklch(0.2643 0.0730 81.71)",
+          "oklch(0.3786 0.0730 81.71)",
+          "oklch(0.4929 0.0730 81.71)",
+          "oklch(0.6071 0.0730 81.71)",
+          "oklch(0.7214 0.0730 81.71)",
+          "oklch(0.8357 0.0730 81.71)",
+          "oklch(0.9500 0.0730 81.71)"
+        ]
+      },
+      "plate": {
+        "role": "neutral",
+        "displayName": "plate",
+        "tonalRamp": [
+          "oklch(0.1500 0.0000 89.88)",
+          "oklch(0.2643 0.0000 89.88)",
+          "oklch(0.3786 0.0000 89.88)",
+          "oklch(0.4929 0.0000 89.88)",
+          "oklch(0.6071 0.0000 89.88)",
+          "oklch(0.7214 0.0000 89.88)",
+          "oklch(0.8357 0.0000 89.88)",
+          "oklch(0.9500 0.0000 89.88)"
+        ]
+      },
+      "brand-khaki": {
+        "role": "secondary",
+        "displayName": "brand khaki",
+        "tonalRamp": [
+          "oklch(0.1500 0.0537 87.36)",
+          "oklch(0.2643 0.0537 87.36)",
+          "oklch(0.3786 0.0537 87.36)",
+          "oklch(0.4929 0.0537 87.36)",
+          "oklch(0.6071 0.0537 87.36)",
+          "oklch(0.7214 0.0537 87.36)",
+          "oklch(0.8357 0.0537 87.36)",
+          "oklch(0.9500 0.0537 87.36)"
+        ]
+      },
+      "brand-green": {
+        "role": "secondary",
+        "displayName": "brand green",
+        "tonalRamp": [
+          "oklch(0.1500 0.0382 161.09)",
+          "oklch(0.2643 0.0382 161.09)",
+          "oklch(0.3786 0.0382 161.09)",
+          "oklch(0.4929 0.0382 161.09)",
+          "oklch(0.6071 0.0382 161.09)",
+          "oklch(0.7214 0.0382 161.09)",
+          "oklch(0.8357 0.0382 161.09)",
+          "oklch(0.9500 0.0382 161.09)"
+        ]
+      },
+      "plum-bg-0": {
+        "role": "neutral",
+        "displayName": "plum bg 0",
+        "tonalRamp": [
+          "oklch(0.1500 0.0316 295.00)",
+          "oklch(0.2643 0.0316 295.00)",
+          "oklch(0.3786 0.0316 295.00)",
+          "oklch(0.4929 0.0316 295.00)",
+          "oklch(0.6071 0.0316 295.00)",
+          "oklch(0.7214 0.0316 295.00)",
+          "oklch(0.8357 0.0316 295.00)",
+          "oklch(0.9500 0.0316 295.00)"
+        ]
+      },
+      "plum-bg-1": {
+        "role": "neutral",
+        "displayName": "plum bg 1",
+        "tonalRamp": [
+          "oklch(0.1500 0.0380 294.89)",
+          "oklch(0.2643 0.0380 294.89)",
+          "oklch(0.3786 0.0380 294.89)",
+          "oklch(0.4929 0.0380 294.89)",
+          "oklch(0.6071 0.0380 294.89)",
+          "oklch(0.7214 0.0380 294.89)",
+          "oklch(0.8357 0.0380 294.89)",
+          "oklch(0.9500 0.0380 294.89)"
+        ]
+      },
+      "plum-bg-2": {
+        "role": "neutral",
+        "displayName": "plum bg 2",
+        "tonalRamp": [
+          "oklch(0.1500 0.0391 289.91)",
+          "oklch(0.2643 0.0391 289.91)",
+          "oklch(0.3786 0.0391 289.91)",
+          "oklch(0.4929 0.0391 289.91)",
+          "oklch(0.6071 0.0391 289.91)",
+          "oklch(0.7214 0.0391 289.91)",
+          "oklch(0.8357 0.0391 289.91)",
+          "oklch(0.9500 0.0391 289.91)"
+        ]
+      },
+      "plum-line": {
+        "role": "neutral",
+        "displayName": "plum line",
+        "tonalRamp": [
+          "oklch(0.1500 0.0452 300.09)",
+          "oklch(0.2643 0.0452 300.09)",
+          "oklch(0.3786 0.0452 300.09)",
+          "oklch(0.4929 0.0452 300.09)",
+          "oklch(0.6071 0.0452 300.09)",
+          "oklch(0.7214 0.0452 300.09)",
+          "oklch(0.8357 0.0452 300.09)",
+          "oklch(0.9500 0.0452 300.09)"
+        ]
+      },
+      "plum-line-strong": {
+        "role": "neutral",
+        "displayName": "plum line strong",
+        "tonalRamp": [
+          "oklch(0.1500 0.0452 302.79)",
+          "oklch(0.2643 0.0452 302.79)",
+          "oklch(0.3786 0.0452 302.79)",
+          "oklch(0.4929 0.0452 302.79)",
+          "oklch(0.6071 0.0452 302.79)",
+          "oklch(0.7214 0.0452 302.79)",
+          "oklch(0.8357 0.0452 302.79)",
+          "oklch(0.9500 0.0452 302.79)"
+        ]
+      },
+      "plum-text-1": {
+        "role": "neutral",
+        "displayName": "plum text 1",
+        "tonalRamp": [
+          "oklch(0.1500 0.0127 306.02)",
+          "oklch(0.2643 0.0127 306.02)",
+          "oklch(0.3786 0.0127 306.02)",
+          "oklch(0.4929 0.0127 306.02)",
+          "oklch(0.6071 0.0127 306.02)",
+          "oklch(0.7214 0.0127 306.02)",
+          "oklch(0.8357 0.0127 306.02)",
+          "oklch(0.9500 0.0127 306.02)"
+        ]
+      },
+      "plum-text-2": {
+        "role": "neutral",
+        "displayName": "plum text 2",
+        "tonalRamp": [
+          "oklch(0.1500 0.0274 302.49)",
+          "oklch(0.2643 0.0274 302.49)",
+          "oklch(0.3786 0.0274 302.49)",
+          "oklch(0.4929 0.0274 302.49)",
+          "oklch(0.6071 0.0274 302.49)",
+          "oklch(0.7214 0.0274 302.49)",
+          "oklch(0.8357 0.0274 302.49)",
+          "oklch(0.9500 0.0274 302.49)"
+        ]
+      },
+      "plum-text-3": {
+        "role": "neutral",
+        "displayName": "plum text 3",
+        "tonalRamp": [
+          "oklch(0.1500 0.0342 303.29)",
+          "oklch(0.2643 0.0342 303.29)",
+          "oklch(0.3786 0.0342 303.29)",
+          "oklch(0.4929 0.0342 303.29)",
+          "oklch(0.6071 0.0342 303.29)",
+          "oklch(0.7214 0.0342 303.29)",
+          "oklch(0.8357 0.0342 303.29)",
+          "oklch(0.9500 0.0342 303.29)"
+        ]
+      },
+      "plum-signal": {
+        "role": "primary",
+        "displayName": "plum signal",
+        "tonalRamp": [
+          "oklch(0.1500 0.0539 265.26)",
+          "oklch(0.2643 0.0539 265.26)",
+          "oklch(0.3786 0.0539 265.26)",
+          "oklch(0.4929 0.0539 265.26)",
+          "oklch(0.6071 0.0539 265.26)",
+          "oklch(0.7214 0.0539 265.26)",
+          "oklch(0.8357 0.0539 265.26)",
+          "oklch(0.9500 0.0539 265.26)"
+        ]
+      },
+      "plum-signal-dim": {
+        "role": "primary",
+        "displayName": "plum signal dim",
+        "tonalRamp": [
+          "oklch(0.1500 0.0762 263.88)",
+          "oklch(0.2643 0.0762 263.88)",
+          "oklch(0.3786 0.0762 263.88)",
+          "oklch(0.4929 0.0762 263.88)",
+          "oklch(0.6071 0.0762 263.88)",
+          "oklch(0.7214 0.0762 263.88)",
+          "oklch(0.8357 0.0762 263.88)",
+          "oklch(0.9500 0.0762 263.88)"
+        ]
+      },
+      "plum-khaki": {
+        "role": "secondary",
+        "displayName": "plum khaki",
+        "tonalRamp": [
+          "oklch(0.1500 0.0490 76.35)",
+          "oklch(0.2643 0.0490 76.35)",
+          "oklch(0.3786 0.0490 76.35)",
+          "oklch(0.4929 0.0490 76.35)",
+          "oklch(0.6071 0.0490 76.35)",
+          "oklch(0.7214 0.0490 76.35)",
+          "oklch(0.8357 0.0490 76.35)",
+          "oklch(0.9500 0.0490 76.35)"
+        ]
+      },
+      "plum-action-ink": {
+        "role": "neutral",
+        "displayName": "plum action ink",
+        "tonalRamp": [
+          "oklch(0.1500 0.0316 295.00)",
+          "oklch(0.2643 0.0316 295.00)",
+          "oklch(0.3786 0.0316 295.00)",
+          "oklch(0.4929 0.0316 295.00)",
+          "oklch(0.6071 0.0316 295.00)",
+          "oklch(0.7214 0.0316 295.00)",
+          "oklch(0.8357 0.0316 295.00)",
+          "oklch(0.9500 0.0316 295.00)"
+        ]
+      },
+      "plum-st-built": {
+        "role": "tertiary",
+        "displayName": "plum st built",
+        "tonalRamp": [
+          "oklch(0.1500 0.1636 159.69)",
+          "oklch(0.2643 0.1636 159.69)",
+          "oklch(0.3786 0.1636 159.69)",
+          "oklch(0.4929 0.1636 159.69)",
+          "oklch(0.6071 0.1636 159.69)",
+          "oklch(0.7214 0.1636 159.69)",
+          "oklch(0.8357 0.1636 159.69)",
+          "oklch(0.9500 0.1636 159.69)"
+        ]
+      },
+      "plum-st-simulated": {
+        "role": "tertiary",
+        "displayName": "plum st simulated",
+        "tonalRamp": [
+          "oklch(0.1500 0.1303 252.34)",
+          "oklch(0.2643 0.1303 252.34)",
+          "oklch(0.3786 0.1303 252.34)",
+          "oklch(0.4929 0.1303 252.34)",
+          "oklch(0.6071 0.1303 252.34)",
+          "oklch(0.7214 0.1303 252.34)",
+          "oklch(0.8357 0.1303 252.34)",
+          "oklch(0.9500 0.1303 252.34)"
+        ]
+      },
+      "plum-st-prototype": {
+        "role": "tertiary",
+        "displayName": "plum st prototype",
+        "tonalRamp": [
+          "oklch(0.1500 0.1399 80.10)",
+          "oklch(0.2643 0.1399 80.10)",
+          "oklch(0.3786 0.1399 80.10)",
+          "oklch(0.4929 0.1399 80.10)",
+          "oklch(0.6071 0.1399 80.10)",
+          "oklch(0.7214 0.1399 80.10)",
+          "oklch(0.8357 0.1399 80.10)",
+          "oklch(0.9500 0.1399 80.10)"
+        ]
+      },
+      "plum-st-designed": {
+        "role": "tertiary",
+        "displayName": "plum st designed",
+        "tonalRamp": [
+          "oklch(0.1500 0.1414 296.35)",
+          "oklch(0.2643 0.1414 296.35)",
+          "oklch(0.3786 0.1414 296.35)",
+          "oklch(0.4929 0.1414 296.35)",
+          "oklch(0.6071 0.1414 296.35)",
+          "oklch(0.7214 0.1414 296.35)",
+          "oklch(0.8357 0.1414 296.35)",
+          "oklch(0.9500 0.1414 296.35)"
+        ]
+      },
+      "plum-st-planned": {
+        "role": "tertiary",
+        "displayName": "plum st planned",
+        "tonalRamp": [
+          "oklch(0.1500 0.0306 254.73)",
+          "oklch(0.2643 0.0306 254.73)",
+          "oklch(0.3786 0.0306 254.73)",
+          "oklch(0.4929 0.0306 254.73)",
+          "oklch(0.6071 0.0306 254.73)",
+          "oklch(0.7214 0.0306 254.73)",
+          "oklch(0.8357 0.0306 254.73)",
+          "oklch(0.9500 0.0306 254.73)"
+        ]
+      },
+      "plum-st-illustrative": {
+        "role": "tertiary",
+        "displayName": "plum st illustrative",
+        "tonalRamp": [
+          "oklch(0.1500 0.0490 76.35)",
+          "oklch(0.2643 0.0490 76.35)",
+          "oklch(0.3786 0.0490 76.35)",
+          "oklch(0.4929 0.0490 76.35)",
+          "oklch(0.6071 0.0490 76.35)",
+          "oklch(0.7214 0.0490 76.35)",
+          "oklch(0.8357 0.0490 76.35)",
+          "oklch(0.9500 0.0490 76.35)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Condensed display",
+        "purpose": "Hero display with responsive local overrides."
+      },
+      "body": {
+        "displayName": "Reading text",
+        "purpose": "Prose and native controls."
+      },
+      "label": {
+        "displayName": "Technical mono",
+        "purpose": "Units and identifiers."
+      },
+      "status": {
+        "displayName": "Evidence status",
+        "purpose": "Written categories."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "control-state",
+        "value": "120ms ease-out",
+        "purpose": "Opacity or border-color; no-preference only."
+      },
+      {
+        "name": "plane-state",
+        "value": "240ms ease-out",
+        "purpose": "Cutaway stroke-width and opacity; no-preference only."
+      },
+      {
+        "name": "cutaway-step",
+        "value": "900ms",
+        "purpose": "Six stage advances at 900ms; final Scan again holds 1600ms; 7000ms playback after 400ms entry delay."
+      },
+      {
+        "name": "scan-step",
+        "value": "600ms",
+        "purpose": "Finite user-started six-step explanation."
+      },
+      {
+        "name": "arrow-response",
+        "value": "180ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Hover/focus arrow shifts 4px; no-preference only."
+      },
+      {
+        "name": "signal-head",
+        "value": "600ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Selected cutaway head position; no-preference only."
+      },
+      {
+        "name": "signal-arrival",
+        "value": "500ms ease-out",
+        "purpose": "Cutaway ring opacity response; no-preference only."
+      },
+      {
+        "name": "connection-flow",
+        "value": "900ms linear",
+        "purpose": "Dashed flow only while playing; stops on pause/completion or hidden/offscreen."
+      },
+      {
+        "name": "router-progress",
+        "value": "280ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Selected/completed route lines; no-preference only."
+      },
+      {
+        "name": "timeline-arrival",
+        "value": "300ms ease-out",
+        "purpose": "Current scan step opacity response; no-preference only."
+      },
+      {
+        "name": "selection-feedback",
+        "value": "220ms cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Explicit selection result settles from opacity .6 and translateY(4px); skips initial render and reduced motion."
+      },
+      {
+        "name": "disclosure-reveal",
+        "value": "220ms cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Native open disclosure settles from opacity .65 and translateY(-4px); reduced motion skips."
+      },
+      {
+        "name": "inspection-enter",
+        "value": "220ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Native figure dialog fades/scales from .6/.985; no-preference only."
+      },
+      {
+        "name": "navigation-exit",
+        "value": "160ms ease-out",
+        "purpose": "Outgoing root fade; no-preference only."
+      },
+      {
+        "name": "navigation-enter",
+        "value": "260ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Incoming root opacity and 6px vertical continuity; header separate, reduced motion uses ordinary navigation."
+      },
+      {
+        "name": "cutaway-intro-delay",
+        "value": "400ms",
+        "purpose": "Pending introduction after at least 75% visibility; manual input cancels, hidden/offscreen clears timer."
+      },
+      {
+        "name": "plane-trace",
+        "value": "600ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Normalized active-plane outline trace; labels remain visible; no-preference only."
+      },
+      {
+        "name": "signal-return",
+        "value": "800ms linear 600ms delay",
+        "purpose": "Final marker waits for head arrival, then follows feedback path; stage seven while playing only."
+      },
+      {
+        "name": "cutaway-final-hold",
+        "value": "1600ms",
+        "purpose": "Final Scan again stage holds through head arrival and return marker before playback ends."
+      },
+      {
+        "name": "reading-entrance",
+        "value": "650ms cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Once at 15% visibility; masked heading/reading elements; readable final state, backwards fill; reduced motion skips."
+      },
+      {
+        "name": "reading-stagger",
+        "value": "45ms increments, 240ms maximum",
+        "purpose": "Schedule cells/planned recording chapter offsets; finite only."
+      },
+      {
+        "name": "adaptive-scan-marker",
+        "value": "180ms steps(5, end)",
+        "purpose": "Schematic scroll position, not measured scheduler activity."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile-end",
+        "value": "767px"
+      },
+      {
+        "name": "tablet-start",
+        "value": "768px"
+      },
+      {
+        "name": "tablet-hero-end",
+        "value": "1023px"
+      },
+      {
+        "name": "desktop-start",
+        "value": "1280px"
+      },
+      {
+        "name": "wide-opening",
+        "value": "1441px"
+      }
+    ],
+    "notes": [
+      "Tonal ramps are synthesized OKLCH preview metadata, not implemented palette tokens.",
+      "User accepted current React design with disclosed findings; reviewer disposition fix and hero gate open.",
+      "Selected hero/shelf labels are scoped exceptions, not general eyebrow rules.",
+      "Recorded FORM seed 9ce5bfbd has unproven originating roll lineage.",
+      "Motion extension recorded 3 October 2026; independent extension review ship, no material fixes; no whole-surface approval asserted.",
+      "Cutaway onboarding updated 5 October 2026; scoped reviewer ship, no material fixes. Recordings unplayed; separate QUALITY BAR unavailable; WebKit and field performance unverified. Historical 3 October review, image-match limits and unproven FORM lineage preserved.",
+      "Pearl/theme and scroll extension finalized 5 October 2026. Completed scoped reviewer ship covers the authorized theme/scroll extension including resolved alignment; no material fixes open. Contract/craft-floor reads complete; 74 clean Chromium/Firefox passes and sampled temporal evidence. QUALITY BAR unavailable, video unplayed, continuous smoothness unmeasured; no historical whole-surface/hero certification.",
+      "Supplied demo extension documented: existing theme/system preserved. Scoped media-state evidence correction ship;81fullpasses+1oldrace,10focusedcorrectionpasses, no clean82fullrun claim. User authorized publication separately; R2 image/provenance routing is verified; Git push and Pages deployment are not yet completed."
+    ],
+    "figureInspection": {
+      "source": "src/scripts/inspect.ts",
+      "mechanism": "Native modal dialog; unique original exports; progressive link enhancement",
+      "controls": [
+        "Previous/next figures and Left/Right keys",
+        "Zoom 1x–3x in 0.5 steps",
+        "Reset zoom and scroll origin",
+        "Focusable canvas, scrolling and non-touch pointer pan when zoomed",
+        "Close/Escape/outside click; return focus to opener",
+        "Pinned source, image alt, labelled title and live figure/zoom status"
+      ],
+      "reducedMotion": "Static modal opening and manual inspection remain; movement and timed playback disabled"
+    },
+    "cutawayOnboarding": {
+      "source": "src/components/Widgets.tsx",
+      "visibilityThreshold": "75%",
+      "repeat": "Once per mounted diagram; no automatic resumption after playback pauses",
+      "controls": "Pause/resume/replay, next/reset and pointer/Enter/Space selection cancel pending introduction",
+      "staticReading": "All labels, planes and evidence boundaries stay visible",
+      "reducedMotion": "No automatic introduction, timed playback or spatial/trace effects; manual controls remain",
+      "announcements": "Off during playback; polite for manual stage changes"
+    },
+    "themes": {
+      "default": "pearl",
+      "alternate": "plum",
+      "source": "src/styles/tokens.css",
+      "mapping": "Semantic frontmatter colors are default Pearl; plum-prefixed colors are dark-root overrides. Explicit light chapters retain Pearl; in default Pearl those chapters use white panels.",
+      "persistence": "avolite-theme in localStorage, applied by index.html before paint; denied storage still supports current page.",
+      "controls": "Header desktop button; inside native Menu below768px; destination names Plum/Light.",
+      "reducedMotion": "Immediate theme replacement; otherwise native view transition where available.",
+      "logo": "Pearl brand-green; Plum reversed supplied mark",
+      "action": "Explicit action-ink foreground with khaki fill in each context"
+    },
+    "scrollMotion": {
+      "source": "src/scripts/scroll-motion.ts",
+      "sceneTargets": [
+        "schedule-compare",
+        "stage widget",
+        "figure frame",
+        "milestones",
+        "comparison"
+      ],
+      "progress": "clamp((0.85 * viewportHeight - sceneTop) / (sceneHeight + 0.35 * viewportHeight), 0, 1)",
+      "chapterProgress": "Visible chapters use the shell requestAnimationFrame scheduler; reading rule separate from engineering state.",
+      "effects": [
+        "Six-position schematic marker",
+        "Normalized pathLength1 system spine",
+        "Figure-frame bottom rule",
+        "Roadmap reading rail",
+        "Comparison and chapter reading rules"
+      ],
+      "cancellation": "Visible scenes only; hidden documents stop updates and cancel entrance animations; reduced motion skips entrances/scroll movement.",
+      "evidence": "Original figures, issued numbers and engineering states unchanged",
+      "systemGeometry": {
+        "svgHeight": "550px",
+        "viewBoxHeight": "550",
+        "rowPitch": "74px",
+        "labelLayer": "Positioned stage index z-index1 keeps return line behind text",
+        "reviewScope": "Completed authorized Pearl/Plum theme and scroll-motion extension ship; historical composition and hero gate excluded"
+      }
+    },
+    "verification": {
+      "audit": ".planning/audits/LIGHT-MOTION-VERIFICATION.md",
+      "typeAndBuild": "pass",
+      "nodePassed": 65,
+      "expandedBrowser": {
+        "passed": 73,
+        "initialFirefoxNavigationTimeouts": 1,
+        "context": "Concurrent capture; not a single all-green run"
+      },
+      "finalFocused": {
+        "passed": 16,
+        "failed": 0,
+        "flaky": 0,
+        "engines": [
+          "chromium",
+          "firefox"
+        ],
+        "includes": "Previously timed-out case"
+      },
+      "earlierChecks": {
+        "fullSuitePassed": 70,
+        "normalTransitionsPassed": 4
+      },
+      "gzipBytes": {
+        "javascript": 69433,
+        "css": 7961
+      },
+      "review": {
+        "path": ".impeccable/review/light-motion-final-verdict.json",
+        "disposition": "ship",
+        "scope": "Authorized Pearl/Plum theme and page-wide scroll-motion extension, including resolved spine alignment; historical composition and hero gate excluded",
+        "samePathCapturesValid": 16,
+        "supplementalSystemFixedCapturesUsed": false,
+        "contractAndCraftFloorReads": "complete"
+      },
+      "limits": [
+        "Separate QUALITY BAR unavailable",
+        "Temporal recording unplayed",
+        "WebKit runtime unavailable",
+        "Lighthouse and field performance unmeasured",
+        "Historical image-match and FORM-lineage limits remain",
+        "Temporal sampling establishes bounded completion/cancellation only; continuous smoothness unverified"
+      ],
+      "deploymentAuthorized": false,
+      "cleanFullSuite": {
+        "report": ".impeccable/review/light-motion-clean-suite.json",
+        "expected": 74,
+        "unexpected": 0,
+        "flaky": 0,
+        "engines": [
+          "chromium",
+          "firefox"
+        ]
+      },
+      "temporal": {
+        "report": ".impeccable/review/light-motion-temporal.json",
+        "widths": [
+          1440,
+          390
+        ],
+        "frames": [
+          ".impeccable/review/light-motion-timing-1440.png",
+          ".impeccable/review/light-motion-timing-390.png"
+        ],
+        "observed": [
+          "Masked headings complete with no active animation or transform",
+          "Runtime reduced motion cancels heading and restores final clip/transform",
+          "Offscreen cutaway paused/stable over 1050ms sample",
+          "Theme transitions active early and complete by approximately400ms sample",
+          "No page errors"
+        ],
+        "continuousVideoPlayed": false,
+        "frameRateMeasured": false
+      }
+    },
+    "documentaryMedia": {
+      "source": [
+        "src/components/RecordingPlayer.tsx",
+        "src/components/DemoMedia.tsx",
+        "src/components/DashboardImage.tsx",
+        "src/lib/demo.ts",
+        "scripts/media.mjs"
+      ],
+      "recording": {
+        "provider": "Drive",
+        "frame": "Stable16:9; existing panel/strong-line",
+        "load": "Visitor request mounts iframe; provider Play starts playback; no initial payload or autoplay query",
+        "permissions": "Autoplay/fullscreen delegation needed by provider internal controller",
+        "lifecycle": "Explicit Close returns focus; hidden/offscreen unmount; focus scroll completes before observer",
+        "fallback": "Native Drive source link always available; no-JS/modified click launches source",
+        "bookmarks": [
+          "00:30",
+          "01:30",
+          "02:30",
+          "03:30",
+          "04:30"
+        ],
+        "bookmarkMeaning": "Sampled moments, not chapter starts",
+        "captionLimit": "Provider captions unavailable; no transcript supplied"
+      },
+      "gallery": {
+        "primary": "Smart Scan",
+        "disclosures": [
+          "Surveillance",
+          "Unknown signals"
+        ],
+        "visual": "Original rasters on white documentary plates; PROTOTYPE and illustrative/source context",
+        "provenance": "PNGembedded origin metadata, responsive WebPJSON sidecars; no recoloring"
+      },
+      "truth": "Browser prototype media does not establish MATLAB results, learned scheduler, AoA or hardware validation; separate MATLAB recording/captures remain pending"
+    },
+    "demoVerification": {
+      "audit": ".planning/audits/DEMO-ASSETS-VERIFICATION.md",
+      "typeAndBuild": "pass",
+      "nodePassed": 65,
+      "focusedMediaPassed": 8,
+      "correctedMediaAndDialogPassed": 10,
+      "engines": [
+        "chromium",
+        "firefox"
+      ],
+      "expandedSuite": {
+        "passed": 81,
+        "failed": 1,
+        "cause": "Existing immediate native close-event assertion race",
+        "correction": "expect.poll; targeted10pass",
+        "clean82FullRunClaimed": false
+      },
+      "gzipBytes": {
+        "javascript": 70558,
+        "css": 8276
+      },
+      "provenance": {
+        "rasters": 46,
+        "missing": 0
+      },
+      "actualDrivePlayback": {
+        "readyState": 4,
+        "paused": false,
+        "startSeconds": 1.396,
+        "endSeconds": 38.856,
+        "durationSeconds": 316.302,
+        "capture": ".impeccable/review/demo-live-player.png"
+      },
+      "review": {
+        "path": ".impeccable/review/demo-final-verdict.json",
+        "disposition": "ship",
+        "scope": "Sole resolved media-state-evidence finding; not whole site"
+      },
+      "limits": [
+        "Provider loading/auxiliary remote errors",
+        "Captions unavailable; transcript absent",
+        "No separateQUALITYBAR or composition comp",
+        "WebKit unavailable; continuous smoothness and field performance unverified",
+        "Historical acceptance/image-match/FORM limits remain"
+      ],
+      "publication": {
+        "userAuthorized": true,
+        "gitPushCompletedClaimed": false,
+        "r2IntegrationCompletedClaimed": true,
+        "deploymentCompletedClaimed": false
+      }
+    },
+    "mediaStorage": {
+      "bucket": "avolite",
+      "origin": "https://pub-96bddf2fe30d456a9831b0b2675e65a5.r2.dev",
+      "release": "54ed0a7745596657",
+      "productionBase": "https://pub-96bddf2fe30d456a9831b0b2675e65a5.r2.dev/avolite/media/54ed0a7745596657",
+      "developmentBase": "/media",
+      "verifiedObjects": {
+        "total": 84,
+        "webp": 42,
+        "provenanceJson": 42,
+        "checks": [
+          "SHA256",
+          "content-type"
+        ]
+      },
+      "sourceHash": "4192d5dbeb626226df5fbbfe6b964f8aa5f3d7bc9bdd27f633aea48e7271a34f",
+      "hashBoundary": "Raw source files; not platform-dependent native encoder bytes",
+      "buildGate": "Changed source media requires assets:r2 upload",
+      "localExports": "Retained in dist",
+      "pagesAssets": [
+        "Fonts",
+        "CSS",
+        "JavaScript"
+      ],
+      "videoProvider": "Drive",
+      "visualChange": false
+    },
+    "r2Verification": {
+      "typeAndBuild": "pass",
+      "nodePassed": 66,
+      "browser": {
+        "passed": 80,
+        "failed": 2,
+        "cause": "Immediate lazy-image assertions",
+        "correction": "Await decoded/loading state",
+        "focusedRecheck": {
+          "report": ".impeccable/review/r2-correction.json",
+          "expected": 2,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "clean82FullRunClaimed": false
+      },
+      "pages": {
+        "project": "avolite",
+        "repository": "SandeshSatishhNaik/Avolite_web",
+        "branch": "claude/dazzling-rubin-69x39p",
+        "build": "npm run build",
+        "output": "dist",
+        "nodeMajor": 24,
+        "siteUrl": "https://avolite.pages.dev"
+      },
+      "gitPushCompleted": false,
+      "pagesDeploymentCompleted": false
+    }
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Khaki evidence action.",
+      "html": "<a class=\"ds-primary\" href=\"#evidence\">Inspect the evidence</a>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:14px 28px;border:1px solid var(--khaki);border-radius:4px;font-family:var(--ff-body);font-weight:600;text-decoration:none;background:var(--khaki);color:var(--action-ink)}.ds-primary:hover{opacity:.9}.ds-primary:focus-visible{outline:2px solid var(--signal);outline-offset:4px}@media(prefers-reduced-motion:no-preference){.ds-primary{transition:opacity 120ms ease-out}}@media(prefers-reduced-motion:no-preference){.ds-primary:active{transform:scale(.98)}}"
+    },
+    {
+      "name": "Secondary action",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outline supporting action.",
+      "html": "<a class=\"ds-secondary\" href=\"#system\">Explore the system</a>",
+      "css": ".ds-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:14px 28px;border:1px solid var(--khaki);border-radius:4px;font-family:var(--ff-body);font-weight:600;text-decoration:none;background:transparent;color:var(--signal);border-color:var(--line-strong)}.ds-secondary:hover{opacity:.9}.ds-secondary:focus-visible{outline:2px solid var(--signal);outline-offset:4px}@media(prefers-reduced-motion:no-preference){.ds-secondary{transition:opacity 120ms ease-out}}@media(prefers-reduced-motion:no-preference){.ds-secondary:active{transform:scale(.98)}}"
+    },
+    {
+      "name": "Native field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Labelled native text field.",
+      "html": "<label for=\"ds-field\">Review reason</label><input id=\"ds-field\" class=\"ds-field\" required>",
+      "css": ".ds-field{display:block;font-family:var(--ff-body);font-size:var(--fs-body);color:var(--text-1);background:var(--bg-1);border:1px solid var(--line-strong);border-radius:4px;min-height:44px;padding:8px 16px}.ds-field:focus-visible{outline:2px solid var(--signal);outline-offset:4px}"
+    },
+    {
+      "name": "Story navigation",
+      "kind": "nav",
+      "description": "Native story disclosure.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Story\"><details><summary>Story</summary><a href=\"#problem\">The problem</a><a href=\"#built\">The foundation</a></details><a href=\"#system\">System</a></nav>",
+      "css": ".ds-nav{display:flex;gap:40px;background:var(--bg-0);color:var(--text-1);font-family:var(--ff-body);padding:16px;border-bottom:1px solid var(--line)}.ds-nav a,.ds-nav summary{display:flex;align-items:center;min-height:44px;color:inherit;text-decoration:none}.ds-nav summary{cursor:pointer;list-style:none;gap:10px}.ds-nav summary::after{content:\"+\";color:var(--signal)}.ds-nav details[open] summary::after{content:\"−\"}.ds-nav a:hover{color:var(--signal)}.ds-nav a:focus-visible{outline:2px solid var(--signal);outline-offset:4px}.ds-nav summary:focus-visible{outline:2px solid var(--signal);outline-offset:4px}"
+    },
+    {
+      "name": "Simulated status",
+      "kind": "chip",
+      "refersTo": "status-simulated",
+      "description": "Written status with circular mark.",
+      "html": "<span class=\"ds-tag\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\" aria-hidden=\"true\"><circle cx=\"6\" cy=\"6\" r=\"4\" fill=\"currentColor\" stroke=\"currentColor\"/></svg>SIMULATED</span>",
+      "css": ".ds-tag{display:inline-flex;align-items:center;gap:7px;color:var(--st-simulated);border:1px solid currentColor;border-radius:2px;padding:3px 8px;font-family:var(--ff-mono);font-size:12px;line-height:1.4;white-space:nowrap}"
+    },
+    {
+      "name": "Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Flat bordered reading panel.",
+      "html": "<article class=\"ds-panel\"><h3>Human review</h3><p>Keep the evidence and decision distinguishable.</p></article>",
+      "css": ".ds-panel{padding:32px;background:var(--bg-1);color:var(--text-2);border:1px solid var(--line);border-radius:4px;font-family:var(--ff-body);line-height:1.6}.ds-panel h3{font-family:var(--ff-display);font-weight:400;font-size:var(--fs-h3);line-height:1.08;color:var(--text-1);margin:0 0 16px}.ds-panel p{margin:0;max-width:64ch}@media(max-width:767px){.ds-panel{padding:20px}}"
+    },
+    {
+      "name": "Disclosure",
+      "kind": "custom",
+      "description": "Native reversible supporting context.",
+      "html": "<details class=\"ds-disclosure\"><summary>How to read the evidence labels</summary><div>SIMULATED means produced by the MATLAB model on synthetic signals.</div></details>",
+      "css": ".ds-disclosure{font-family:var(--ff-body);color:var(--text-2);border-top:1px solid var(--line);padding-block:12px}.ds-disclosure summary{min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--text-1);font-weight:500;cursor:pointer}.ds-disclosure summary::after{content:\"+\";color:var(--signal)}.ds-disclosure[open] summary::after{content:\"−\"}.ds-disclosure summary:focus-visible{outline:2px solid var(--signal);outline-offset:4px}.ds-disclosure>div{padding:12px 0 20px}"
+    },
+    {
+      "name": "Theme switch",
+      "kind": "button",
+      "description": "Native destination-labelled Pearl/Plum header control; runtime persistence is supplied by shell.ts.",
+      "html": "<button class=\"ds-theme\" type=\"button\" aria-label=\"Switch to plum theme\"><span class=\"ds-swatch\" aria-hidden=\"true\"></span>Plum</button>",
+      "css": ".ds-theme{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;min-width:88px;padding:8px 12px;font-family:var(--ff-body);font-size:14px;background:var(--bg-1);color:var(--text-1);border:1px solid var(--line-strong);border-radius:4px}.ds-theme:hover{border-color:var(--signal)}.ds-theme:focus-visible{outline:2px solid var(--signal);outline-offset:4px}.ds-theme:disabled{visibility:hidden}.ds-swatch{width:13px;height:13px;border:1px solid currentColor;border-radius:50%;background:var(--signal)}@media(prefers-reduced-motion:no-preference){.ds-theme{transition:border-color 120ms ease-out}.ds-theme:active{transform:scale(.98)}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Exhibition Cutaway",
+    "overview": "Exhibition Cutaway presents AVOLITE as an engineering exhibit. Condensed headings establish scale, labelled linework explains relationships, and source artifacts remain inspectable. Pearl is now the default page-scale presentation; selectable Plum retains its dark opening, raised shelf and light supporting chapters. The cutaway composition and typography remain shared. The supplied logo remains the identity asset.\n\nThe system is flat, deliberate and evidence-conscious. Written statuses distinguish implemented, simulated, prototype, designed, planned and illustrative material. Local fonts, native disclosures and complete static diagrams support reading before interaction.",
+    "keyCharacteristics": [
+      "Condensed display with open technical prose.",
+      "Default Pearl and persistent Plum with matching annotations, action ink and status colors.",
+      "Hairline dividers and unmodified white figure plates.",
+      "Finite explanations with a one-time cutaway introduction and reader controls."
+    ],
+    "rules": [
+      {
+        "name": "The Context Pair Rule",
+        "body": "Switch surface, text, line, annotation, action-ink and status palettes together when changing theme or entering an explicit light chapter.",
+        "section": "colors"
+      },
+      {
+        "name": "The Evidence Label Rule",
+        "body": "Color accompanies a written status; appearance never upgrades evidence.",
+        "section": "colors"
+      },
+      {
+        "name": "The Reading Voice Rule",
+        "body": "Use Anton for hierarchy, Plex Sans for prose and native controls, and Plex Mono for units, identifiers and status tags.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Exhibit Rule",
+        "body": "Use tonal surfaces, borders and linework for depth; the shipped system has no box-shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve the supplied logo and local font pairing.",
+      "Do switch complete theme palettes together.",
+      "Do retain written evidence labels, source links and original figure plates.",
+      "Do keep native disclosures, visible focus and complete static diagrams.",
+      "Do keep playback finite and paused when hidden or offscreen; reserve automatic playback for the one-time cutaway introduction and retain immediate manual control."
+    ],
+    "donts": [
+      "Don't infer engineering success from color or illustrative animation.",
+      "Don't recolor original MATLAB figures to fit the interface.",
+      "Don't carry historical navy, Archivo, Astro or GSAP prescriptions into this React system.",
+      "Don't extend the selected hero/shelf label exceptions into a general eyebrow style."
+    ]
+  }
+}

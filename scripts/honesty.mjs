@@ -53,14 +53,18 @@ const text = (html) =>
       const vals = [...tag.matchAll(ATTR)].map((m) => m[1] ?? m[2]);
       return ` ${vals.join(' ')} `;
     })
-    .replace(/&nbsp;|&#160;/g, ' ');
+    .replace(/&#(x[0-9a-f]+|\d+);?/gi, (_, encoded) => {
+      const value = encoded[0].toLowerCase() === 'x' ? parseInt(encoded.slice(1), 16) : Number(encoded);
+      return value > 0 && value <= 0x10ffff ? String.fromCodePoint(value) : '\uFFFD';
+    })
+    .replace(/&(nbsp|Tab|NewLine|amp|lt|gt|quot|apos);/g, (_, name) => ({nbsp:' ',Tab:'\t',NewLine:'\n',amp:'&',lt:'<',gt:'>',quot:'"',apos:"'"})[name]);
 
 const RULES = [
   [/\blive\b/i, '"Live"'],
   [/\breal[\s-]?time\b/i, '"real-time"'],
   [/\b(?:TODO|TBD|FIXME|XXX)\b|\blorem\b/i, 'placeholder text'],
 ];
-const AI_WORD = /\b(?:AI|ML)\b/;
+const AI_WORD = /\b(?:AI|ML)\b/i;
 const AI_PHRASE = /\b(?:machine learning|neural|trained|learns?)\b/i;
 
 export function lintHtml(html, file = 'html') {
@@ -74,7 +78,10 @@ export function lintHtml(html, file = 'html') {
     const t = text(scope);
     if (AI_WORD.test(t) || AI_PHRASE.test(t)) hits.push(`${file}: AI/ML next to BUILT/SIMULATED: ${t.replace(/\s+/g, ' ').trim().slice(0, 80)}`);
   }
-  for (const m of body.matchAll(/<data(?=[\s>])[^>]*>/gi)) if (!/data-status\s*=/.test(m[0])) hits.push(`${file}: number without status: ${m[0].slice(0, 60)}`);
+  for (const m of body.matchAll(/<data(?=[\s>])[^>]*>/gi)) {
+    const status = m[0].match(/\sdata-status\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i);
+    if (!status || !['BUILT','SIMULATED','PROTOTYPE','DESIGNED','PLANNED','ILLUSTRATIVE'].includes(status[1] ?? status[2] ?? status[3])) hits.push(`${file}: number without valid status: ${m[0].slice(0, 60)}`);
+  }
   return hits;
 }
 

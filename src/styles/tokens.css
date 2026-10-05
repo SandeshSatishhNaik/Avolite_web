@@ -1,24 +1,29 @@
+/* Self-hosted fonts; Anton matches the approved comp's condensed display. */
+@font-face{font-family:Anton;src:url('/fonts/anton.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'IBM Plex Sans';src:url('/fonts/ibm-plex-sans.woff2') format('woff2');font-weight:400 700;font-display:swap}
+@font-face{font-family:'IBM Plex Mono';src:url('/fonts/ibm-plex-mono.woff2') format('woff2');font-weight:400;font-display:swap}
 /* Single source of design values. The only file allowed to hold color and font-family literals. */
 :root {
   color-scheme: dark;
 
   /* Surfaces */
-  --bg-0: #050B16;
-  --bg-1: #0B1629;
-  --bg-2: #12213A;
-  --bg-3: #1A2C4B;
-  --line: #1D3050;
-  --line-strong: #4D6D99;
+  --bg-0: #191525;
+  --bg-1: #211C30;
+  --bg-2: #232035;
+  --bg-3: #342D44;
+  --line: #443B55;
+  --line-strong: #706581;
 
   /* Text */
-  --text-1: #E8EEF6;
-  --text-2: #A3B3C9;
-  --text-3: #8095B0;
+  --text-1: #EEEAF3;
+  --text-2: #C4BDD0;
+  --text-3: #ACA3BA;
 
   /* Signal and accents */
-  --signal: #3BE4F2;
-  --signal-dim: #2A9DB0;
-  --khaki: #C9B98F;
+  --signal: #B8C9ED;
+  --signal-dim: #839BCB;
+  --khaki: #CFB99A;
+  --action-ink: #191525;
   --error: #FF7A7A;
 
   /* Status */
@@ -27,7 +32,7 @@
   --st-prototype: #F2B84B;
   --st-designed: #B99CFF;
   --st-planned: #9AA8BA;
-  --st-illustrative: #C9B98F;
+  --st-illustrative: #CFB99A;
 
   /* White plate matching MATLAB exports (UI-05); figures are never recoloured */
   --plate: #FFFFFF;
@@ -36,10 +41,10 @@
   --brand-khaki: #BCAC87;
   --brand-green: #2D4639;
 
-  /* Type families (defined by the Astro Fonts API, fallbacks included) */
-  --ff-display: var(--font-display);
-  --ff-body: var(--font-body);
-  --ff-mono: var(--font-mono);
+  /* Type families (local WOFF2 files, fallbacks included) */
+  --ff-display: Anton, Impact, sans-serif;
+  --ff-body: 'IBM Plex Sans', Arial, sans-serif;
+  --ff-mono: 'IBM Plex Mono', monospace;
 
   /* Type scale */
   --fs-display: clamp(3rem, 1.6rem + 4.4vw, 6rem);
@@ -48,7 +53,7 @@
   --fs-lead: clamp(1.125rem, 1rem + 0.45vw, 1.3125rem);
   --fs-body: 1.0625rem;
   --fs-small: 0.875rem;
-  --fs-label: 0.75rem;
+  --fs-label: 0.875rem;
   --fs-readout-xl: clamp(3rem, 2rem + 3vw, 4.5rem);
   --fs-readout-m: 2rem;
 
@@ -80,7 +85,7 @@
   --r-chip: 2px;
 
   /* Layout */
-  --header-h: 64px;
+  --header-h: 72px;
   --frame: 1440px;
   --margin: 16px;
 
@@ -95,6 +100,17 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
   --ease-linear: linear;
+}
+
+:root:not([data-theme="plum"]), .light {
+  color-scheme: light;
+  --bg-0: #F4F2F7; --bg-1: #FFFFFF; --bg-2: #E9E5EE; --bg-3: #DDD7E6;
+  --text-1: #171322; --text-2: #554D63; --text-3: #655B73;
+  --line: #D4CDDE; --line-strong: #80748F;
+  --signal: #344C83; --signal-dim: #586FA0;
+  --khaki: #715828; --action-ink: #FFFFFF;
+  --st-built: #176442; --st-simulated: #285691; --st-prototype: #785010;
+  --st-designed: #654195; --st-planned: #5D526C; --st-illustrative: #715828; --error: #AB263B;
 }
 
 @media (min-width: 768px) {

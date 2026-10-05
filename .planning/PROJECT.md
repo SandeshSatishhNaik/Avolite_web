@@ -1,6 +1,12 @@
 # AVOLITE Website
 
+> **React implementation — 2 October 2026:** The user explicitly replaced Astro with React. All eight main chapters and System/Evidence appendices are built in React/Vite. Build, types, data safeguards and Chromium/Firefox browser checks pass. Final visual review is underway. See README.md and STATE.md; historical implementation notes below do not override this stack.
+
+> **Redesign brief updated 1 October 2026:** SIH judges remain primary. The user replaced the 2 October deadline with quality-based milestones and requested visual mockups plus a full plan before implementation. **Exhibition Cutaway is selected**, confirmed by the exact image attachment. Preserve its dark hero and develop lighter supporting sections. See [redesign plan](redesign/REDESIGN-PLAN.md). Multi-page scope and supporting layouts remain proposed; historical requirements below are the prior baseline.
+
 ## What This Is
+
+**Current experience plan (2 October):** [EXPERIENCE-SPEC.md](redesign/EXPERIENCE-SPEC.md) preserves introduction plus all eight sections on the main page, defines their layouts and interactions, and adds System/Evidence appendices. The user delegated these decisions; design implementation remains pending.
 
 A single-page storytelling website for AVOLITE, Team Avoflare's Smart India Hackathon 2026 entry for Problem Statement 26055, "Smart Scan strategy for Electronic Warfare". It explains to evaluators and judges what problem AVOLITE solves, how the closed-loop smart-scan system works, what the team has actually built in MATLAB/Simulink, what is new in the AI architecture, and where the project goes next. Every claim on the site is tagged with its true status, so the judges can trust what they read.
 
@@ -68,7 +74,7 @@ A judge who scrolls the page once understands the problem, sees the real MATLAB 
 
 ## Constraints
 
-- **Timeline:** live within 1–2 days (by 2 Oct 2026) — forces coarse phases, reuse of proven patterns, and no speculative features
+- **Timeline:** quality-based milestones; the user withdrew the 2 October deadline on 1 October 2026. Set a replacement schedule after redesign scope selection.
 - **Honesty:** no number appears without a status tag; illustrative values never look like measured results; outside research is cited and marked "not an AVOLITE result"
 - **Hosting:** Cloudflare Pages, static output; deployment happens in the final step only, and never without the user asking
 - **Assets:** real screenshots, plots and the demo video arrive later — sections must ship with clearly marked placeholders and swap in assets without layout changes

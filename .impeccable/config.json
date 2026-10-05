@@ -1,0 +1,18 @@
+{
+  "buildPath": "comp",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "layout-transition",
+        "value": "*",
+        "files": [
+          "src/styles/site.css"
+        ],
+        "createdAt": "2026-10-02T17:27:05.905Z",
+        "reason": "Agent triage: line14 animates SVG stroke-width and opacity only; detector matches width inside stroke-width. No CSS width, height, padding or margin transitions exist in this file. Preserve intentional active-stage stroke motion."
+      }
+    ]
+  }
+}

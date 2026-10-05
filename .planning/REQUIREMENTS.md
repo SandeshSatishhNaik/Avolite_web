@@ -1,5 +1,9 @@
 # Requirements: AVOLITE Website
 
+> **Current stack — 2 October 2026:** React/Vite replaces every Astro requirement by explicit user instruction. Introduction plus all eight chapters and System/Evidence pages are implemented. Existing evidence honesty remains mandatory. Review status and remaining limitations are in STATE.md and README.md; historical checkboxes are retained as GSD history.
+
+> **2 October 2026 design reconciliation:** The user selected Exhibition Cutaway and delegated the full experience plan, retaining the introduction and Avoflare's eight main sections. [EXPERIENCE-SPEC.md](redesign/EXPERIENCE-SPEC.md) is the current design authority. Its section 10 explicitly revises header/mobile navigation, hero, mobile system layout, comparison controls, demo, roadmap marker and motion requirements below. Historical completion checkboxes refer to the existing foundation, not the unimplemented redesign. Data-honesty requirements remain intact.
+
 **Defined:** 2026-09-30
 **Core Value:** A judge who scrolls the page once understands the problem, sees the real MATLAB work, and can tell exactly what is built, what is designed and what is illustrative.
 

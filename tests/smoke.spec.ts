@@ -12,7 +12,7 @@ test('home renders with fonts wired and no console errors', async ({ page }) => 
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   const h1 = page.locator('h1');
   await expect(h1).toBeVisible();
-  await expect(h1).toHaveText('AVOLITE');
-  expect(await h1.evaluate((el) => getComputedStyle(el).fontFamily)).toContain('Archivo');
+  await expect(h1).toHaveText('From signal toscanning decision.');
+  expect(await h1.evaluate((el) => getComputedStyle(el).fontFamily)).toContain('Anton');
   expect(errors).toEqual([]);
 });

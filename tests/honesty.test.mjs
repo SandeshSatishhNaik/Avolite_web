@@ -107,6 +107,13 @@ test('lintHtml flags a <data> number without data-status', () => {
   assert.deepEqual(hits('<p><data value="1" data-status="SIMULATED">1</data></p>'), []);
 });
 
+test('honesty guards reject invalid status, entity-encoded claims and lowercase model claims', () => {
+  for (const status of ['', 'UNKNOWN', 'SIMULATED-fake']) assert.equal(hits(`<data value="1" data-status="${status}">1</data>`).length, 1);
+  assert.equal(hits('<p>l&#x69;ve feed</p>').length, 1);
+  assert.equal(hits('<p>real&Tab;time</p>').length, 1);
+  assert.equal(hits('<p>ml output <span data-status="SIMULATED">SIMULATED</span></p>').length, 1);
+});
+
 test('scanDist on the real dist is clean', (t) => {
   const dist = fileURLToPath(new URL('../dist/', import.meta.url));
   if (!existsSync(dist)) return t.skip('dist/ absent: run npm run build first');

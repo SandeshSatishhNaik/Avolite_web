@@ -1,0 +1,227 @@
+{
+  "title": "AVOLITE — lighter, more refined",
+  "question": "New directions with light surfaces, stronger typography and more polished diagrams. Choose a direction or describe a revision.",
+  "options": [
+    {
+      "id": "folio-r2",
+      "label": "Engineering Folio",
+      "kicker": "DIRECTION A",
+      "lineage": "Contemporary engineering publications",
+      "thesis": "A bright technical folio with precise diagrams, sage chapter fields and a quiet evidence appendix.",
+      "palette": [
+        "#F7F9F5",
+        "#E2EBE2",
+        "#152E2A",
+        "#526761",
+        "#A0834E"
+      ],
+      "materials": [
+        "Porcelain white",
+        "Pale sage",
+        "Deep green ink"
+      ],
+      "viewport": "Large typography and a horizontal foldout system drawing, followed by a deep-green evidence chapter.",
+      "risk": "Needs strong diagram craft to avoid feeling like a document template.",
+      "raised": [
+        {
+          "from": "Provenance Ribbon",
+          "raise": "Attach source and scope beside every claim, not in a distant footer."
+        },
+        {
+          "from": "Iridescent Edge",
+          "raise": "Keep broad surfaces bright and confine accents to functional highlights."
+        },
+        {
+          "from": "Registered Plates",
+          "raise": "Keep diagram scale and label positions stable when stages change."
+        },
+        {
+          "from": "Technical Drawing Sheet",
+          "raise": "Use direct diagram labels and bounded detail views without ornamental geometry."
+        },
+        {
+          "from": "Emission Rail",
+          "raise": "Distinguish selected and pending stages through shape and words."
+        },
+        {
+          "from": "Layered Scroller",
+          "raise": "Freeze all surrounding activity while a technical passage is being read."
+        }
+      ],
+      "comp": ".impeccable/mocks/decision/folio-r2.png"
+    },
+    {
+      "id": "pavilion-r2",
+      "label": "Review Pavilion",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Architectural review and exhibition boards",
+      "thesis": "Porcelain-white reading space meets a bold cobalt system plane and restrained exhibit captions.",
+      "palette": [
+        "#F7F9FC",
+        "#E7EDF8",
+        "#193FE5",
+        "#182342",
+        "#62708A"
+      ],
+      "materials": [
+        "White gallery space",
+        "Cobalt chapter plane",
+        "Precise blue linework"
+      ],
+      "viewport": "An oversized two-line headline, an open system diagram and a confident cobalt evidence band.",
+      "risk": "Architectural presentation is familiar; responsive diagram quality must deliver the distinction.",
+      "comp": ".impeccable/mocks/decision/pavilion-r2.png"
+    },
+    {
+      "id": "ribbon",
+      "label": "Provenance Ribbon",
+      "palette": [
+        "#e8ddc7",
+        "#a63032",
+        "#363333"
+      ],
+      "materials": [
+        "Archival ribbon"
+      ],
+      "thesis": "Trace each claim through a single evidence ribbon.",
+      "viewport": "Trace each claim through a single evidence ribbon.",
+      "risk": "The historical custody metaphor adds work for engineering judges.",
+      "lineage": "Provenance Ribbon",
+      "verdict": "declined",
+      "case": "Less immediate audience identification and lower explanation clarity than Engineering Folio.",
+      "kept": "Source continuity",
+      "hero": "https://impeccable.style/worlds/cards/exhibition-museum-curation-provenance-ribbon-hero.webp"
+    },
+    {
+      "id": "cloud",
+      "label": "Iridescent Edge",
+      "palette": [
+        "#ffffff",
+        "#59616a",
+        "#b8afd3"
+      ],
+      "materials": [
+        "Light cloud fields"
+      ],
+      "thesis": "An airy surface with narrowly colored signal edges.",
+      "viewport": "An airy surface with narrowly colored signal edges.",
+      "risk": "Atmosphere can overwhelm the system explanation.",
+      "lineage": "Iridescent Edge",
+      "verdict": "declined",
+      "case": "Less immediate audience identification and lower explanation clarity than Engineering Folio.",
+      "kept": "Light restraint",
+      "hero": "https://impeccable.style/worlds/cards/clouds-storms-auroras-iridescent-cloud-edge-hero.webp"
+    },
+    {
+      "id": "botanical",
+      "label": "Registered Plates",
+      "palette": [
+        "#f1eadc",
+        "#4e6445",
+        "#923f38"
+      ],
+      "materials": [
+        "Aligned folio plates"
+      ],
+      "thesis": "Compare system stages in precisely aligned panels.",
+      "viewport": "Compare system stages in precisely aligned panels.",
+      "risk": "Biological stage imagery weakens audience identification and flow clarity.",
+      "lineage": "Registered Plates",
+      "verdict": "declined",
+      "case": "Less immediate audience identification and lower explanation clarity than Engineering Folio.",
+      "kept": "Consistent scale",
+      "hero": "https://impeccable.style/worlds/cards/editorial-sequence-montage-botanical-folio-season-hero.webp"
+    },
+    {
+      "id": "patent",
+      "label": "Technical Drawing Sheet",
+      "palette": [
+        "#ffffff",
+        "#242424",
+        "#a52b36"
+      ],
+      "materials": [
+        "Ink and ruled bond"
+      ],
+      "thesis": "Link numbered system parts to a formal specification.",
+      "viewport": "Link numbered system parts to a formal specification.",
+      "risk": "Patent-style numerals slow the story and may suggest a legal status the project does not claim.",
+      "lineage": "Technical Drawing Sheet",
+      "verdict": "declined",
+      "case": "Less immediate audience identification and lower explanation clarity than Engineering Folio.",
+      "kept": "Explanatory precision",
+      "hero": "https://impeccable.style/worlds/cards/notation-diagram-systems-patent-drawing-sheet-hero.webp"
+    },
+    {
+      "id": "emission",
+      "label": "Emission Rail",
+      "palette": [
+        "#f4f5f5",
+        "#333c45",
+        "#a66a18"
+      ],
+      "materials": [
+        "Light translated instrument plate"
+      ],
+      "thesis": "Navigate stages along one calibrated rail.",
+      "viewport": "Navigate stages along one calibrated rail.",
+      "risk": "A single-size instrument grammar underplays the story and overwhelms judges with instrumentation.",
+      "lineage": "Emission Rail",
+      "verdict": "declined",
+      "case": "Less immediate audience identification and lower explanation clarity than Engineering Folio.",
+      "kept": "Non-color states",
+      "hero": "https://impeccable.style/worlds/cards/operate-c-emission-line-rail-hero.webp"
+    },
+    {
+      "id": "scroller",
+      "label": "Layered Scroller",
+      "palette": [
+        "#f4f5f5",
+        "#242a32",
+        "#9c6c18"
+      ],
+      "materials": [
+        "Light translated screen planes"
+      ],
+      "thesis": "Bring the selected text plane forward.",
+      "viewport": "Bring the selected text plane forward.",
+      "risk": "Bitmap hierarchy and depth navigation distract from technical reading.",
+      "lineage": "Layered Scroller",
+      "verdict": "declined",
+      "case": "Less immediate audience identification and lower explanation clarity than Engineering Folio.",
+      "kept": "Quiet reading plane",
+      "hero": "https://impeccable.style/worlds/cards/operate-c-cracktro-scroller-queue-hero.webp"
+    }
+  ],
+  "canon": true,
+  "canonCard": {
+    "label": "Precision Light",
+    "thesis": "A polished light engineering site with familiar navigation, balanced spacing and restrained blue accents.",
+    "palette": [
+      "#FFFFFF",
+      "#F0F3F7",
+      "#182839",
+      "#405D78",
+      "#214DA8"
+    ],
+    "materials": [
+      "White panels",
+      "Cool silver surfaces",
+      "Dark navy ink"
+    ],
+    "viewport": "Clear left headline and a technical diagram plate, with an open evidence index below.",
+    "risk": "Easy to use but closest to a conventional technical website.",
+    "comp": ".impeccable/mocks/decision/precision-r2.png"
+  },
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "steer": true,
+  "buildPath": {
+    "value": "comp",
+    "toggle": true
+  }
+}

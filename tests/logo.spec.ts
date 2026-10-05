@@ -33,13 +33,17 @@ test('logo tones resolve from tokens', async ({ page }) => {
       const cs = getComputedStyle(el);
       return [cs.getPropertyValue('--logo-green'), cs.getPropertyValue('--logo-khaki')].map((v) => v.trim().toLowerCase());
     });
-  expect(await vars('#t-mark')).toEqual(['#e8eef6', '#bcac87']);
+  expect(await vars('#t-mark')).toEqual(['#2d4639', '#bcac87']);
+  expect((await vars('#t-color'))[0]).toBe('#2d4639');
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.getByRole('button',{name:'Switch to plum theme'}).filter({visible:true}).click();
+  expect(await vars('#t-mark')).toEqual(['#eeeaf3', '#bcac87']);
   expect((await vars('#t-color'))[0]).toBe('#2d4639');
 });
 
-test('logo art paints light and khaki pixels (not black, not clipped)', async ({ page }) => {
+test('light-theme logo paints brand green and khaki pixels without clipping', async ({ page }) => {
   const png = (await page.locator('#t-lockup').screenshot()).toString('base64');
-  const [light, khaki, total] = await page.evaluate(async (b64) => {
+  const [green, khaki, total] = await page.evaluate(async (b64) => {
     const img = new Image();
     img.src = `data:image/png;base64,${b64}`;
     await img.decode();
@@ -54,12 +58,12 @@ test('logo art paints light and khaki pixels (not black, not clipped)', async ({
     let l = 0;
     let k = 0;
     for (let i = 0; i < d.length; i += 4) {
-      if (near(i, [232, 238, 246])) l++;
+      if (near(i, [45, 70, 57])) l++;
       else if (near(i, [188, 172, 135])) k++;
     }
     return [l, k, d.length / 4];
   }, png);
-  expect(light / total).toBeGreaterThan(0.01);
+  expect(green / total).toBeGreaterThan(0.01);
   expect(khaki / total).toBeGreaterThan(0.01);
 });
 

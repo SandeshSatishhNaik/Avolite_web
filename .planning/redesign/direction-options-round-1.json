@@ -1,0 +1,220 @@
+{
+  "title": "AVOLITE — redesign directions",
+  "question": "Compare the mockups, then choose a direction or request a revision. All are proposals; engineering claims stay unchanged.",
+  "options": [
+    {
+      "id": "exhibition",
+      "label": "Exhibition Cutaway",
+      "kicker": "DIRECTION A",
+      "lineage": "Science museum explanatory exhibits",
+      "thesis": "Reveal the system as one large annotated cutaway, with evidence clearly separated from design.",
+      "palette": [
+        "#171322",
+        "#282237",
+        "#EEEAF3",
+        "#CFB99A",
+        "#B8C9ED"
+      ],
+      "materials": [
+        "Matte dark plum",
+        "Pale cutaway lines",
+        "Flat exhibit captions"
+      ],
+      "viewport": "Oversized AVOLITE title at left; a dominant layered loop drawing at right; an evidence shelf spans the bottom.",
+      "risk": "The drawing needs disciplined labels so it never implies fabricated hardware.",
+      "raised": [
+        {
+          "from": "Fold Sequence",
+          "raise": "Every step has a stable label and visible predecessor/successor."
+        },
+        {
+          "from": "Exposed Binding",
+          "raise": "The implemented/designed boundary remains visible throughout the story."
+        },
+        {
+          "from": "Cathode Stack",
+          "raise": "Stage changes use explicit labels and immediate value changes."
+        },
+        {
+          "from": "Cutting Bench",
+          "raise": "Visited, selected, and pending states have distinct text and shapes."
+        },
+        {
+          "from": "Motion Score",
+          "raise": "Each chapter has consistent diagram, explanation, and evidence order."
+        },
+        {
+          "from": "Collision Desk",
+          "raise": "One oversized cutaway owns the opening; surrounding UI stays quiet."
+        }
+      ],
+      "comp": ".impeccable/mocks/decision/exhibition.png"
+    },
+    {
+      "id": "atlas",
+      "label": "Signal Atlas",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Scientific atlas plates",
+      "thesis": "A system atlas with a persistent chapter index and an inspectable evidence plate.",
+      "palette": [
+        "#0E252B",
+        "#193940",
+        "#EAF0E9",
+        "#B5CBCD",
+        "#D6C09B"
+      ],
+      "materials": [
+        "Marine fields",
+        "Pale technical plates",
+        "Direct annotations"
+      ],
+      "viewport": "An indexed left column, large system statement, and an inset loop atlas; evidence sits directly beneath.",
+      "risk": "More familiar engineering presentation; distinction depends on exceptional diagram craft.",
+      "comp": ".impeccable/mocks/decision/atlas.png"
+    },
+    {
+      "id": "orizuru",
+      "label": "Fold Sequence",
+      "lineage": "Vermilion origami sequence",
+      "palette": [
+        "#c34024",
+        "#eee6db",
+        "#171714"
+      ],
+      "materials": [
+        "Fold diagrams"
+      ],
+      "thesis": "Each loop step unfolds from a single sheet.",
+      "viewport": "Each loop step unfolds from a single sheet.",
+      "risk": "Judges must learn an unrelated fold notation.",
+      "verdict": "declined",
+      "case": "Less familiar to SIH judges and less clear about evidence than Exhibition Cutaway.",
+      "kept": "Step continuity"
+    },
+    {
+      "id": "coptic",
+      "label": "Exposed Binding",
+      "lineage": "Exposed book binding",
+      "palette": [
+        "#a68f6b",
+        "#ddd3bc",
+        "#272722"
+      ],
+      "materials": [
+        "Linen and boards"
+      ],
+      "thesis": "Chapters open beside a continuous structural spine.",
+      "viewport": "Chapters open beside a continuous structural spine.",
+      "risk": "Craft metaphor competes with the RF mechanism.",
+      "verdict": "declined",
+      "case": "Less familiar to SIH judges and less clear about evidence than Exhibition Cutaway.",
+      "kept": "Visible structure"
+    },
+    {
+      "id": "cathode",
+      "label": "Cathode Stack",
+      "lineage": "Orange cathode access surface",
+      "palette": [
+        "#080e18",
+        "#f89540",
+        "#e8e5de"
+      ],
+      "materials": [
+        "Bronze gauze"
+      ],
+      "thesis": "One active stage is struck forward over inactive states.",
+      "viewport": "One active stage is struck forward over inactive states.",
+      "risk": "Ghost numerals can suggest unsupported telemetry.",
+      "verdict": "declined",
+      "case": "Less familiar to SIH judges and less clear about evidence than Exhibition Cutaway.",
+      "kept": "Decisive states"
+    },
+    {
+      "id": "cutting",
+      "label": "Cutting Bench",
+      "lineage": "Film edit select rail",
+      "palette": [
+        "#ed7228",
+        "#101010",
+        "#ffffff"
+      ],
+      "materials": [
+        "Film frames"
+      ],
+      "thesis": "Chapters occupy a horizontal perforated rail.",
+      "viewport": "Chapters occupy a horizontal perforated rail.",
+      "risk": "Film scrubbing creates unnecessary navigation work.",
+      "verdict": "declined",
+      "case": "Less familiar to SIH judges and less clear about evidence than Exhibition Cutaway.",
+      "kept": "State distinctions"
+    },
+    {
+      "id": "laban",
+      "label": "Motion Score",
+      "lineage": "Labanotation score",
+      "palette": [
+        "#ffffff",
+        "#161616",
+        "#aaaaaa"
+      ],
+      "materials": [
+        "Notation paper"
+      ],
+      "thesis": "Loop steps occupy a mirrored vertical staff.",
+      "viewport": "Loop steps occupy a mirrored vertical staff.",
+      "risk": "Bottom-up notation is unfamiliar to judges.",
+      "verdict": "declined",
+      "case": "Less familiar to SIH judges and less clear about evidence than Exhibition Cutaway.",
+      "kept": "Ordered rhythm"
+    },
+    {
+      "id": "raygun",
+      "label": "Collision Desk",
+      "lineage": "Experimental magazine composition",
+      "palette": [
+        "#e3e1d4",
+        "#161616",
+        "#ff476e"
+      ],
+      "materials": [
+        "Overprinted type"
+      ],
+      "thesis": "Huge headlines cross a fragmented system drawing.",
+      "viewport": "Huge headlines cross a fragmented system drawing.",
+      "risk": "Collision makes technical reading slower.",
+      "verdict": "declined",
+      "case": "Less familiar to SIH judges and less clear about evidence than Exhibition Cutaway.",
+      "kept": "Hierarchy courage"
+    }
+  ],
+  "canon": true,
+  "canonCard": {
+    "label": "Instrument Console",
+    "thesis": "A familiar navy engineering presentation with a radar-inspired loop and clear evidence panels.",
+    "palette": [
+      "#07101F",
+      "#13223F",
+      "#E6EEF8",
+      "#3BE4F2"
+    ],
+    "materials": [
+      "Navy panels",
+      "Cyan signal lines",
+      "Hairline borders"
+    ],
+    "viewport": "Large left-aligned headline, restrained circular system diagram, evidence band below.",
+    "risk": "Easy to recognize but closest to the current site and conventional technical portfolios.",
+    "comp": ".impeccable/mocks/decision/console.png"
+  },
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "steer": true,
+  "buildPath": {
+    "value": "comp",
+    "toggle": true
+  }
+}

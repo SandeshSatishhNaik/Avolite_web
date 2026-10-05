@@ -1,11 +1,10 @@
 // Registry of the MATLAB exports mirrored from the pinned upstream commit (scenario A only).
-// Not imported by data.ts or any node test: it imports .png files, which only Vite can resolve.
+// Paths identify original exports; scripts/media.mjs creates responsive WebP variants.
 // Alt text names the plot type and axes and carries no numbers; numbers live in tagged tables.
-import type { ImageMetadata } from 'astro';
 
-// Lazy glob: only the figures a page renders are loaded at runtime. Vite still emits every PNG it can reach, so
-// pruneUnusedPng (scripts/honesty.mjs, run after build) removes the originals no built file references (no .png in dist).
-const IMAGES = import.meta.glob<{ default: ImageMetadata }>('../assets/repo/**/*.png');
+
+// Figure components retain the source link, dimensions and local status beside each export.
+
 
 type Figure = { alt: string; title: string; status: 'SIMULATED'; path: string };
 
@@ -77,9 +76,3 @@ export const FIGURES = {
 } satisfies Record<string, Figure>;
 
 export type FigureId = keyof typeof FIGURES;
-
-export async function loadImage(id: FigureId): Promise<ImageMetadata> {
-  const load = IMAGES[`../assets/repo/${FIGURES[id].path}`];
-  if (!load) throw new Error(`figures: no image file for ${id}`);
-  return (await load()).default;
-}

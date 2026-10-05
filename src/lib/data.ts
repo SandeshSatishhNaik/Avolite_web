@@ -1,6 +1,6 @@
 // The only path for numbers onto the site. Erasable TS only (node --test imports this file):
 // explicit .ts extensions, JSON via import attributes, no TS-only runtime syntax, no image or virtual-module imports.
-import { z } from 'astro/zod';
+import { z } from 'zod';
 import { STATUS_IDS } from './status.ts';
 import type { Status } from './status.ts';
 import results from '../data/results.json' with { type: 'json' };

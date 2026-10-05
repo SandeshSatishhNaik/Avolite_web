@@ -1,6 +1,12 @@
 # Roadmap: AVOLITE Website
 
+> **React delivery — 2 October 2026:** User-requested React rebuild implemented the static site and interaction scope directly; historical GSD completion counts remain unchanged. Current work: final independent visual review and documentation. Team assets, WebKit on this host, performance measurement and user-requested deployment remain open. See STATE.md and README.md.
+
+> **1 October redesign update:** The user selected **Exhibition Cutaway** by image attachment. SIH judges remain primary; the 2 October deadline is removed. Completed Phases 1–2 remain valid foundations. Develop supporting layouts within the chosen world, then reconcile the [redesign plan](redesign/REDESIGN-PLAN.md) with requirements before executing Phase 3. The old Phase 3 draft and deadline-based instructions below remain superseded.
+
 ## Overview
+
+**Current delivery order:** Follow [EXPERIENCE-SPEC.md](redesign/EXPERIENCE-SPEC.md) section 11: reconcile guidance, restyle primitives, complete all static sections, add auxiliary pages, then interactions and motion, QA, and user-requested deployment. Use section 10 to reconcile superseded visual requirements before writing executable Phase 3 plans.
 
 Breadth-first build of a static, honesty-first single-page site for AVOLITE (SIH 2026, PS 26055). Each phase leaves a shippable site. The order is: shell and stack, then the data and status system that every number flows through, then all 8 sections as static pages (the ship point, deadline 2026-10-02), then interactives and motion (motion is the first cut), then late team assets, then QA and a user-requested deploy.
 
